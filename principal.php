@@ -1,6 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="./css/principal.css">
+    <link rel="icon" href="./img/02-08-18-ojos.png" type="image/png">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  
+</head>
+<body>
+    
 <?php require('./layout/header.php')?>
 
-            <main>
+<main>
             <!-- tarjetas -->
             <div class="cardBox">
                 <div class="card">
@@ -170,5 +184,7 @@
                 </div>
             </div>
             </main>
+
+
 
 <?php require('./layout/footer.php')?>

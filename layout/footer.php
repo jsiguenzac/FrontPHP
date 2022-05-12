@@ -32,11 +32,16 @@
         list.forEach((item) =>
         item.addEventListener('mouseover', activeLink));
     </script>
-
+<!--pal table-->
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
     <script type="text/javascript">
         $(document).ready( function () {
         $('#tablePostulante').DataTable();
+        } );
+    </script>
+    <script type="text/javascript">
+        $(document).ready( function () {
+        $('#tableDocente').DataTable();
         } );
     </script>
 </body>
