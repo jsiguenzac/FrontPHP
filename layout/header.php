@@ -1,5 +1,5 @@
 <?php ?>  
-<div class="container">
+<div class="container1">
         <div class="navigation">
             <ul>
                 <li>

@@ -34,7 +34,7 @@ body::-webkit-scrollbar-thumb {
     border-radius: 50px;
 }
 /* contenedor */
-.container {
+.container1 {
     position: absolute;
     width: 100%;
 }
