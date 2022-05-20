@@ -10,7 +10,12 @@
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="css/adminlte.min.css">
-</head>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <!-- datatable -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+  
+  </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 
   <?php require('./layout/header2.php')?>
@@ -25,15 +30,15 @@
             <h1>Carreras</h1>
           </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div><!-- /.container-fluid 
     </section>
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="col-sm-6">
-        <div class="breadcrumb float-sm-right">
+    <section class="content">  -->  
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper iframe-mode" data-widget="iframe" data-loading-screen="750">
+    <div class="tab-content">
           <div class="table-responsive">
-            <table class="table table-responsive table-hover table-bordered border-primary" id="tablePostulante">
+            <table class="table table-responsive table-hover border="0" cellspacing="0" cellpadding="0"" id="tableCarerra">
                     <thead class="table-dark">
                         <tr>
                             <th>Hoi</th>
@@ -69,12 +74,85 @@
                           <td>BOLI</td>
                           <td>UY</td>
                         </tr>
-                        
+                        <tr>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                        </tr>
+                        <tr>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                        </tr>
+                        <tr>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                        </tr>
+                        <tr>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                        </tr>
+                        <tr>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                        </tr>
+                        <tr>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                        </tr>
+
+                        <tr>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                        </tr>
+                        <tr>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                        </tr>
+                        <tr>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                          <td>BOLI</td>
+                          <td>UY</td>
+                        </tr>                        
                     </tbody>
                 </table>
           </div>
-        </div>
-      </div>
+    </div>
+  </div>
+  <!-- /.content-wrapper -->
     </section>
     <!-- /.content -->
   </div>
@@ -82,5 +160,18 @@
     <!--FIN DE CONTENIDO DE CADA HTML-->
 
     <?php require('./layout/footer2.php')?>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.js"></script>
+  <!-- Option 1: Bootstrap Bundle with Popper --> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#tableCarerra').DataTable();
+});
+
+</script>
 </body>
 </html>
