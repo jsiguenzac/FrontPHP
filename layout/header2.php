@@ -46,8 +46,8 @@
             <a href="index.php" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
-                INICIO<br>
-                ___________________________
+                INICIO
+                <hr color="White">
               </p>
             </a>
           </li>
@@ -55,8 +55,8 @@
             <a href="admision.html" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
-                ADMISION<br>
-                ___________________________
+                ADMISION
+                <hr color="White">
               </p>
             </a>
           </li>
@@ -64,8 +64,8 @@
             <a href="carreras.php" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
-                CARRERAS<br>
-                ___________________________
+                CARRERAS
+                <hr color="White">
               </p>
             </a>
           </li>
@@ -73,8 +73,8 @@
             <a href="postulantes.html" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
-                POSTULANTES<br>
-                ___________________________
+                POSTULANTES
+                <hr color="White">
               </p>
             </a>
           </li>
@@ -82,8 +82,8 @@
             <a href="ficha.html" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
-                FICHA DE POSTULACION<br>
-                ___________________________
+                FICHA DE POSTULACION
+                <hr color="White">
               </p>
             </a>
           </li>
@@ -91,8 +91,8 @@
             <a href="verificacion.html" class="nav-link">
               <span class="lnr lnr-eye"></span>
               <p>
-                VERIFICACION<br>
-                ___________________________
+                VERIFICACION
+                <hr color="White">
               </p>
             </a>
           </li>

@@ -38,7 +38,7 @@
  <div class="content-wrapper iframe-mode" data-widget="iframe" data-loading-screen="750">
     <div class="tab-content">
           <div class="table-responsive">
-            <table class="table table-responsive table-hover border="0" cellspacing="0" cellpadding="0"" id="tableCarerra">
+            <table class="table table-responsive table-hover border='0' cellspacing='0' cellpadding='0'" id="tableCarrera">
                     <thead class="table-dark">
                         <tr>
                             <th>Hoi</th>
@@ -169,9 +169,9 @@
   <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
 <script>
   $(document).ready(function() {
-    $('#tableCarerra').DataTable();
+    $('#tableCarrera').DataTable();
 });
-tabladata = $('#tableCarerra').DataTable({
+tabladata = $('#tableCarrera').DataTable({
   "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
             }
