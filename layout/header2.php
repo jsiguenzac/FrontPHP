@@ -61,7 +61,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="carreras.php" class="nav-link">
+            <a href="carrera.php" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
                 CARRERAS
