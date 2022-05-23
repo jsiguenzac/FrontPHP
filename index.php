@@ -13,7 +13,7 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 
-  <?php require('./layout/header2.php')?>
+  <?php require('./layout/header-menu.php')?>
 
   <!--AQUI INICIO CONTENIDO DE CADA HTML-->
   <div class="content-wrapper">

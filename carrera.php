@@ -15,7 +15,7 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 
-  <?php require('./layout/header2.php')?>
+  <?php require('./layout/header-menu.php')?>
 
   <!--AQUI INICIO CONTENIDO DE CADA HTML-->
   <div class="content-wrapper">
@@ -24,7 +24,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Inicio</h1>
+            <h1>Carreras</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -34,117 +34,37 @@
     <section class="content">
     <div class="container">
           <div class="table-responsive">           
-            <table class="table table-responsive table-hover border='0' cellspacing='0' cellpadding='0'" id="tableCarrera">
+           <!-- <table class="table table-responsive table-hover border='0' cellspacing='0' cellpadding='0'" id="tableCarrera">
                     <thead class="table-dark">
-                        <tr>
-                            <th>Hoi</th>
-                            <th>asas</th>
-                            <th>Hoi2</th>
-                            <th>asas2</th>
-                            <th>Hoi3</th>
-                            <th>asas3</th>
-                        </tr>
+                    <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Estado</th>
+                    <th>Opciones</th>
+                </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>BOLI</td>
-                            <td>UY</td>
-                            <td>BOLI</td>
-                            <td>UY</td>
-                            <td>BOLI</td>
-                            <td>UY</td>
-                        </tr>
-                        <tr>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                        </tr>
-                        <tr>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                        </tr>
-                        <tr>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                        </tr>
-                        <tr>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                        </tr>
-                        <tr>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                        </tr>
-                        <tr>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                        </tr>
-                        <tr>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                        </tr>
-                        <tr>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                        </tr>
-
-                        <tr>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                        </tr>
-                        <tr>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                        </tr>
-                        <tr>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                          <td>BOLI</td>
-                          <td>UY</td>
-                        </tr>                        
+                    <tbody>     
+                                              
                     </tbody>
                 </table>
+                <div id="ktAlertTable" style="display:none; margin-top:10px;" class="alert alert-warning rounded" role="alert">No hay registros...!</div>
+
+              -->
+<table id="tableCarrera" class="table table-responsive table-hover border='0' cellspacing='0' cellpadding='0'">
+                <thead class="table-dark">
+                    <tr>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>ESTADO</th>
+                    <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                    <tbody>
+
+                    </tbody>
+                    </table>
+                    <div id="ktAlertTable" style="display:none; margin-top:10px;" class="alert alert-warning rounded" role="alert">No hay registros...!</div>
+                
           </div>
         </div>
     </section>
@@ -154,19 +74,11 @@
     <!--FIN DE CONTENIDO DE CADA HTML-->
 
     <?php require('./layout/footer2.php')?>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> 
 
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-<script>
-  $(document).ready(function() {
-    $('#tableCarrera').DataTable();
-});
-tabladata = $('#tableCarrera').DataTable({
-  "language": {
-                "url": "https://cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
-            }
-});
+ <script src="./js/carrera2.js"></script>
 
-</script>
 </body>
 </html>
