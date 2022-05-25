@@ -15,16 +15,16 @@ tabladata = $('#tableCarrera').DataTable({
         { "data": "estado" },
         {
             "data": "id", "render": function (data, type, row, meta) {
-                return $("<button>").addClass("btn btn-info btn-editar btn-sm").append(
-                    $("<i>").addClass("fas fa-eye")
+                return $("<button onclick='validaPostulante()'>").addClass("btn btn-info btn-valida btn-sm").append(
+                    $("<i>").addClass("fas fa-eye").text("Validar")
                 ).attr({ "data-informacion": JSON.stringify(row) })[0].outerHTML
-                +
-                $("<button>").addClass("btn btn-primary btn-editar btn-sm").append(
-                    $("<i>").addClass("fas fa-pen")
+                +" | "+
+                $("<button onclick='editaCarrera()'>").addClass("btn btn-primary btn-editar btn-sm").append(
+                    $("<i>").addClass("fas fa-pen").text("Editar")
                 ).attr({ "data-informacion": JSON.stringify(row) })[0].outerHTML
-                +
-                $("<button>").addClass("btn btn-danger btn-eliminar btn-sm ms-2").append(
-                    $("<i>").addClass("fas fa-trash")
+                +" | "+
+                $("<button onclick='eliminaCarrera()'>").addClass("btn btn-danger btn-eliminar btn-sm ms-2").append(
+                    $("<i>").addClass("fas fa-trash").text("Eliminar")
                 ).attr({ "data-informacion": JSON.stringify(row) })[0].outerHTML;
             }
         }
@@ -34,3 +34,8 @@ tabladata = $('#tableCarrera').DataTable({
     }
     });
 });
+
+function editaCarrera() {
+//document.getElementsByTagName("BODY")[0].style.backgroundColor = "yellow";
+alert("EDITAR dice: Hola");
+}
