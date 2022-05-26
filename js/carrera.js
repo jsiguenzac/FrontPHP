@@ -1,5 +1,5 @@
 var tabladata;
-$(document).ready(function() {   
+$(document).ready(function() {    
 tabladata = $('#tableCarrera').DataTable({
     responsive:true,
     "ajax": {
