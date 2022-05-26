@@ -52,7 +52,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="admision.html" class="nav-link">
+            <a href="admision.php" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
                 ADMISION
@@ -70,7 +70,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="postulantes.html" class="nav-link">
+            <a href="postulante.php" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
                 POSTULANTES
