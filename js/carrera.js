@@ -35,7 +35,40 @@ tabladata = $('#tableCarrera').DataTable({
     });
 });
 
+// AGREGAR CARRERAS
+function RegistrarCarreras() {
+    var request = {
+        descripcion:$("#iddescripcion").val(),
+        estado:$("#idestado").val()
+    }
+    console.log(request)
+    jQuery.ajax({
+        url: 'http://localhost:8081/api/v1/carrera/registrar/area/1',
+        type: "POST",
+        data: JSON.stringify(request),
+        //el tipo de dato que devolvera el servidor 
+        //dataType: "string",
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            console.log("datos recibidos: "+data)
+            if (data) {
+                console.log(data.descripcion)
+                document.location.href = "carrera.php";                
+            //$('#mensaje').addClass('alert alert-dark').html('📧Revisa tu correo para confirmar tu cuenta...')
+
+            } else {
+                console.log("No se pudo guardar los cambios");
+            }
+        },
+        error: function (error) {
+            console.log("mando error"+error);
+            //$.LoadingOverlay("hide");
+        }
+    });
+
+}
+
+
 function editaCarrera() {
-//document.getElementsByTagName("BODY")[0].style.backgroundColor = "yellow";
-alert("EDITAR dice: Hola");
+$('#idAgregarCar').modal('show')
 }

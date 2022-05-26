@@ -100,7 +100,7 @@
                                               </div>	
                                                   <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger" id="idcancelar" data-bs-dismiss="modal">CANCELAR</button>
-                                                    <button type="submit" class="btn btn-success">GRABAR</button>
+                                                    <button type="submit" class="btn btn-success" onclick="RegistrarCarreras()">GRABAR</button>
                                                   </div>
                                             </form>	
                                     </div>	      
