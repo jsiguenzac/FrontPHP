@@ -50,6 +50,7 @@
                           <th>ID</th>
                           <th>NOMBRE</th>
                           <th>ESTADO</th>
+                          <th>AREA</th>
                           <th>ACCIONES</th>
                           </tr>
                         </thead>

@@ -13,6 +13,7 @@ tabladata = $('#tableCarrera').DataTable({
         { "data": "id" },
         { "data": "descripcion" },
         { "data": "estado" },
+        { "data": "area.descripcion" },
         {
             "data": "id", "render": function (data, type, row, meta) {
                 return $("<button onclick='validaPostulante()'>").addClass("btn btn-info btn-valida btn-sm").append(
@@ -39,7 +40,8 @@ tabladata = $('#tableCarrera').DataTable({
 function RegistrarCarreras() {
     var request = {
         descripcion:$("#iddescripcion").val(),
-        estado:$("#idestado").val()
+        estado:$("#idestado").val(),
+        //area:$("#idarea").val()
     }
     console.log(request)
     jQuery.ajax({

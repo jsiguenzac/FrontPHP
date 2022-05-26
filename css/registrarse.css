@@ -9,55 +9,56 @@
 
 body {
     overflow: hidden;
-    background-image: url('../img/02-08-18-ojos.png'); /*logo del proyecto*/
+    background-image: url('../img/background.jpg');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: rgb(44, 44, 150);
 }
-/* video {
-    position: absolute;
-    min-width: 100%;
-    min-height: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    z-index: -1;
-} */
 
  section {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    /* background: linear-gradient(to bottom, #f1f4f9, #dff1ff); */
 }
-/* 
-section .color {
+
+.form .inputBox button {
+    width: 100%;
+    position: relative;
+    background: rgba(40, 111, 243, 0.692);
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    overflow: hidden;
+    transition: all .3s cubic-bezier(.21, -0.67, .76, 1.63);
+}
+
+button.boton::after {
+    content: '';
     position: absolute;
-    filter: blur(150px);
-} 
-
-section .color:nth-child(1) {
-    top: -350px;
-    width: 600px;
-    height: 600px;
-     background: #ff359b; 
+    top: -550%;
+    right: 130%;
+    width: 100%;
+    height: 1500%;
+    background: linear-gradient(50deg, rgba(209, 112, 60, 0), rgba(255, 255, 255, 0.5) 50%, rgba(209, 112, 60, 0));
+    transform: rotate(-60deg);
+    -webkit-animation: efec 1s 2s ease-in forwards;
 }
-
-section .color:nth-child(2) {
-    bottom: -150px;
-    left: 100px;
-    width: 600px;
-    height: 600px;
-     background: #fffd87; 
+@keyframes efec {
+    100% {
+        transform: rotate(-60deg) translate(320%, 120%);
+    }
 }
-
-section .color:nth-child(3) {
-    bottom: 50px;
-    left: 100px;
-    width: 300px;
-    height: 300px;
-     background: #00d2ff; 
-} */
 
 .box {
     position: relative;
@@ -84,7 +85,7 @@ section .color:nth-child(3) {
         transform:  translateY(40px);
     }
 }
-/*
+
 .box .square:nth-child(1){
     top: -50px;
     right: -60px;
@@ -121,7 +122,7 @@ section .color:nth-child(3) {
     width: 60px;
     height: 60px;
 }  
-*/
+
 .container {
     position: relative;
     width: 400px;

@@ -21,7 +21,7 @@
                 //termina pantalla de carga
                // $.LoadingOverlay("hide");
                 //TODO: hacer un reload o limpiar los inputs
-               $('#mensaje').addClass('alert alert-dark').html('📧Revisa tu correo para confirmar tu cuenta...')
+               $('#mensaje').addClass('alert alert-danger').html('📧Revisa tu correo para confirmar tu cuenta...')
                             
             } else {
                 console.log("No se pudo guardar los cambios");

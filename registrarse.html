@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resgistro</title>
+    <link rel="stylesheet" href="css/registrarse.css"  type="text/css">
+    <link rel="icon" href="img/ico.png" type="image/png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <section>
+        <div class="box">
+            <div class="square" style="--i:0;"></div>
+            <div class="square" style="--i:1;"></div>
+            <div class="square" style="--i:2;"></div>
+            <div class="square" style="--i:3;"></div>
+            <div class="square" style="--i:4;"></div>
+            <div class="container">
+                <div class="form">
+                    <h2>Registrarse</h2>
+                    <form action="" method="POST">
+                        <div class="inputBox">
+                            <input type="text" id="nombre" name="firstName" placeholder="Nombre" require>
+                        </div><div class="inputBox">
+                            <input type="text" id="apellido" name="lastName" placeholder="Apellido" require>
+                        </div>
+                        <div class="inputBox">
+                            <input type="text" id="username" name="username" placeholder="Usuario" require>
+                        </div>                        
+                        <div class="inputBox">
+                            <input type="email" id="email" name="email" placeholder="Correo Electrónico" require>
+                        </div>
+                        <!--<div class="inputBox">
+                            <input class="registro" type="button" onclick="Registrar()" value="Registrarse">
+                        </div>-->
+                                 <!--a-->
+                                         <div class="row mx-auto mb-3">
+                                            <span id="mensaje"></span>
+                                        </div>
+                                            <div class="mt-4 mb-0">
+                                                <div class="inputBox">
+                                                    <button class="boton" type="button" onclick="Registrar()">Registrarse</button>
+                                                </div>
+                                            </div>
+                        <p class="forget"><a href="login.html">Iniciar Sesión</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        let registro = document.querySelector('.registro')
+        registro.onclick = function () {
+            alert("Se registro correctamente");
+        }
+    </script>
+
+    <script>
+            function Registrar() {
+            var request = {
+                firstName:$("#nombre").val(),
+                lastName:$("#apellido").val(),
+                username:$("#username").val(),
+                email:$("#email").val()
+                //falta implementar el confirmar contraseña
+            }
+            console.log(request)
+            jQuery.ajax({
+                url: 'http://localhost:8081/api/v1/usuario/registro',
+                type: "POST",
+                data: JSON.stringify(request),
+                //el tipo de dato que devolvera el servidor 
+                //dataType: "string",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    console.log("datos recibidos: "+data)
+                    if (data) {
+                        console.log(data.username)
+                        //termina pantalla de carga
+                    // $.LoadingOverlay("hide");
+                        //TODO: hacer un reload o limpiar los inputs
+                    $('#mensaje').addClass('alert alert-dark').html('📧Revisa tu correo para confirmar tu cuenta...')
+
+                    } else {
+                        console.log("No se pudo guardar los cambios");
+                    }
+                },
+                error: function (error) {
+                    console.log("mando error"+error);
+                    //$.LoadingOverlay("hide");
+                }
+            });
+
+            }
+    </script>
+</body>
+</html>
