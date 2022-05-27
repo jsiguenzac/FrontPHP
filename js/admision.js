@@ -69,3 +69,31 @@ function RegistrarAdmision() {
 function editaAdmision() {
 $('#idAgregarAdm').modal('show')
 }
+
+/*EVENTO ONCLICK AL BTN-eliminar*/
+$(document).on("click",".btn-eliminar",function(){
+	var cod, nombre;
+	//obtener datos de las filas de la tabla
+	cod=$(this).parents("tr").find("td")[0].innerHTML;
+    nombre=$(this).parents("tr").find("td")[1].innerHTML;
+	swal({
+        title: "¿Seguro que desea eliminar "+nombre+"?",
+        text: "Se quitará de la lista",
+        icon: "warning",        
+        dangerMode: true,
+        buttons: true,
+    })
+    .then((willDelete) => {        
+        if (willDelete) {
+            $.ajax({
+                url:"http://localhost:8081/api/v1/admision/eliminar/"+cod,
+                type:"DELETE",
+                success:function(){
+                    swal("Ok","Se eliminó correctamente!","success").then(function(){
+                        window.location="admision.php";
+                    });
+                }
+            });       
+        } 
+    });
+})
