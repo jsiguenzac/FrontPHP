@@ -39,19 +39,33 @@ tabladata = $('#tableCarrera').DataTable({
     loadCombo();
         /*EVENTO ONCLICK AL BTN-EDIT*/
     $(document).on("click",".btn-editar",function(){
-        var id,descripcion,estado, areaid;
-        var row = $(this).closest('tr');
-        //obtener datos de las filas de la tabla
-       id = tabladata.row( row ).data().id;
-       descripcion = tabladata.row( row ).data().descripcion;
-       estado = tabladata.row( row ).data().estado;
-        areaid = tabladata.row( row ).data().area.id;
-        //mostrar datos 
-        $("#idcod").val(id);
-        $("#iddescripcion").val(descripcion);
-        $("#idestado").val(estado);
-        $("#idarea").val(areaid);
-        $('#idAgregarCar').modal('show'); //abrir modal
+        var nombre;
+        nombre=$(this).parents("tr").find("td")[1].innerHTML;
+        swal({
+            title: "¿Seguro que desea editar "+nombre+"?",
+           text: "Se actualizará de la lista",
+            icon: "warning",        
+            dangerMode: true,
+            buttons: true,
+        })
+        .then((willUpdate) => {        
+            if (willUpdate) {           
+                var id,descripcion,estado, areaid;
+                var row = $(this).closest('tr');
+                //obtener datos de las filas de la tabla
+               id = tabladata.row( row ).data().id;
+               descripcion = tabladata.row( row ).data().descripcion;
+               estado = tabladata.row( row ).data().estado;
+                areaid = tabladata.row( row ).data().area.id;
+                
+                //mostrar datos 
+                $("#idcod").val(id);
+                $("#iddescripcion").val(descripcion);
+                $("#idestado").val(estado);
+                $("#idarea").val(areaid);
+                $('#idAgregarCar').modal('show'); //abrir modal      
+            }
+        }); 
     })
 
 });
@@ -61,10 +75,11 @@ function Guardar() {
     var request = {
             id:$("#idcod").val(),
             descripcion:$("#iddescripcion").val(),
-            estado:$("#idestado").val()
+            estado:$("#idestado").val(),
+            areaid:$("#idarea").val()
     }
     jQuery.ajax({
-        url: 'http://localhost:8081/api/v1/carrera/registrar/area/1',
+        url: 'http://localhost:8081/api/v1/carrera/registrar/area/'+request.areaid,
         type: "POST",
         data: JSON.stringify(request),
         contentType: "application/json; charset=utf-8",

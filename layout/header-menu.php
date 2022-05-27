@@ -115,7 +115,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="login.html" class="nav-link active">
                   <span class="lnr lnr-exit"></span>
                   <p>CERRAR SESIÓN</p>
                 </a>

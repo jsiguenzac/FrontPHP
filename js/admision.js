@@ -32,22 +32,36 @@ tabladata = $('#tableAdmision').DataTable({
       
   /*EVENTO ONCLICK AL BTN-EDIT*/
   $(document).on("click",".btn-editar",function(){
-    var id,descripcion,estado;
-    var row = $(this).closest('tr');
+    var nombre;
+    nombre=$(this).parents("tr").find("td")[1].innerHTML;
+    swal({
+        title: "¿Seguro que desea editar "+nombre+"?",
+       text: "Se actualizará de la lista",
+        icon: "warning",        
+        dangerMode: true,
+        buttons: true,
+    })
+    .then((willUpdate) => {        
+        if (willUpdate) {           
+            var id,descripcion,estado;
+            var row = $(this).closest('tr');
 
-   id = tabladata.row( row ).data().id;
-   descripcion = tabladata.row( row ).data().descripcion;
-   estado = tabladata.row( row ).data().estado;
-    //mostrar datos 
-    $("#idcod").val(id);
-    $("#iddescripcion").val(descripcion);
-    $("#idestado").val(estado);
-    $('#idAgregarAdm').modal('show'); //abrir modal
+        id = tabladata.row( row ).data().id;
+        descripcion = tabladata.row( row ).data().descripcion;
+        estado = tabladata.row( row ).data().estado;
+            //mostrar datos 
+            $("#idcod").val(id);
+            $("#iddescripcion").val(descripcion);
+            $("#idestado").val(estado);
+            $('#idAgregarAdm').modal('show'); //abrir modal
+        }
+    }); 
+    
 })
 
 });
 
-// AGREGAR/ACTUALIZAR CARRERAS
+/*AGREGAR/ACTUALIZAR CARRERAS*/
 function Guardar() {
     var request = {
             id:$("#idcod").val(),
