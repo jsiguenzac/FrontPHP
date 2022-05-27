@@ -44,16 +44,16 @@
                 <div class="card-body">
                   <div class="table-responsive">                         
                     <!--Tabla-->
-                    <table id="tablePostulantes" class="table table-bordered table-hover table-striped">
+                    <table id="tablePostulante" class="table table-bordered table-hover table-striped">
                         <thead class="table-dark">
                           <tr style="text-align: center;">
                           <th>Nº</th>
-                          <th>EMAIL</th>
-                          <th>IMAGEN URL</th>
-                          <th>APELLIDO</th>
                           <th>NOMBRE</th>
+                          <th>APELLIDO</th>
+                          <th>EMAIL</th>
                           <th>TELEFONO</th>
-                          <th>ESTUDIANTE ID</th>
+                          <th>IMAGEN URL</th>                          
+                          <th style="display: none;"></th>
                           <th>ACCIONES</th>
                           </tr>
                         </thead>
@@ -121,7 +121,7 @@
     <!--FIN DE CONTENIDO DE CADA HTML-->
 
     <?php require('./layout/footer2.php')?>
-
+    <script src="./js/postulante.js"></script>
 
 </body>
 </html>
