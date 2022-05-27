@@ -25,7 +25,7 @@ tabladata = $('#tableCarrera').DataTable({
                     $("<i>").addClass("fas fa-pen").text("Editar")
                 ).attr({ "data-informacion": JSON.stringify(row) })[0].outerHTML
                 +" | "+
-                $("<button onclick='eliminaCarrera()'>").addClass("btn btn-danger btn-eliminar btn-sm ms-2").append(
+                $("<button>").addClass("btn btn-danger btn-eliminar btn-sm ms-2").append(
                     $("<i>").addClass("fas fa-trash").text("Eliminar")
                 ).attr({ "data-informacion": JSON.stringify(row) })[0].outerHTML;
             }
@@ -74,36 +74,31 @@ function RegistrarCarreras() {
 function editaCarrera() {
 $('#idAgregarCar').modal('show')
 }
-// ELIMINAR CARRERA ------- FALTA VER LA LOGICA DE ESTA WEA
-function eliminaCarrera() {
-    var request = {
-        descripcion:$("#iddescripcion").val(),
-        //estado:$("#idestado").val(),
-        //area:$("#idarea").val()
-    }
-    console.log(request)
-    jQuery.ajax({
-        url: 'http://localhost:8081/api/v1/carrera/eliminar/4',
-        type: "POST",
-        data: JSON.stringify(request),
-        //el tipo de dato que devolvera el servidor 
-        //dataType: "string",
-        contentType: "application/json; charset=utf-8",
-        success: function (data) {
-            console.log("datos recibidos: "+data)
-            if (data) {
-                console.log(data.descripcion)
-                document.location.href = "carrera.php";                
-            //$('#mensaje').addClass('alert alert-dark').html('📧Revisa tu correo para confirmar tu cuenta...')
 
-            } else {
-                console.log("No se pudo guardar los cambios");
-            }
-        },
-        error: function (error) {
-            console.log("mando error"+error);
-            //$.LoadingOverlay("hide");
-        }
+/*EVENTO ONCLICK AL BTN-eliminar*/
+$(document).on("click",".btn-eliminar",function(){
+	var cod, nombre;
+	//obtener datos de las filas de la tabla
+	cod=$(this).parents("tr").find("td")[0].innerHTML;
+    nombre=$(this).parents("tr").find("td")[1].innerHTML;
+	swal({
+        title: "¿Seguro que desea eliminar "+nombre+"?",
+        text: "Se quitará de la lista",
+        icon: "warning",        
+        dangerMode: true,
+        buttons: true,
+    })
+    .then((willDelete) => {        
+        if (willDelete) {
+            $.ajax({
+                url:"http://localhost:8081/api/v1/carrera/eliminar/"+cod,
+                type:"DELETE",
+                success:function(){
+                    swal("Ok","Se eliminó correctamente!","success").then(function(){
+                        window.location="carrera.php";
+                    });
+                }
+            });       
+        } 
     });
-
-}
+})
