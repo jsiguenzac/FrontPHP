@@ -15,11 +15,11 @@ tabladata = $('#tableAdmision').DataTable({
         { "data": "estado" },
         {
             "data": "id", "render": function (data, type, row, meta) {
-                return $("<button onclick='editaAdmision()'>").addClass("btn btn-primary btn-editar btn-sm").append(
+                return $("<button>").addClass("btn btn-primary btn-editar btn-sm").append(
                     $("<i>").addClass("fas fa-pen").text("Editar")
                 ).attr({ "data-informacion": JSON.stringify(row) })[0].outerHTML
                 +" | "+
-                $("<button onclick='eliminaAdmision()'>").addClass("btn btn-danger btn-eliminar btn-sm ms-2").append(
+                $("<button>").addClass("btn btn-danger btn-eliminar btn-sm ms-2").append(
                     $("<i>").addClass("fas fa-trash").text("Eliminar")
                 ).attr({ "data-informacion": JSON.stringify(row) })[0].outerHTML;
             }
@@ -30,43 +30,55 @@ tabladata = $('#tableAdmision').DataTable({
     }
     });
       
+  /*EVENTO ONCLICK AL BTN-EDIT*/
+  $(document).on("click",".btn-editar",function(){
+    var id,descripcion,estado;
+    var row = $(this).closest('tr');
+
+   id = tabladata.row( row ).data().id;
+   descripcion = tabladata.row( row ).data().descripcion;
+   estado = tabladata.row( row ).data().estado;
+    //mostrar datos 
+    $("#idcod").val(id);
+    $("#iddescripcion").val(descripcion);
+    $("#idestado").val(estado);
+    $('#idAgregarAdm').modal('show'); //abrir modal
+})
+
 });
 
-// AGREGAR ADMISION
-function RegistrarAdmision() {
+// AGREGAR/ACTUALIZAR CARRERAS
+function Guardar() {
     var request = {
-        descripcion:$("#iddescripcion").val(),
-        estado:$("#idestado").val(),
+            id:$("#idcod").val(),
+            descripcion:$("#iddescripcion").val(),
+            estado:$("#idestado").val()
     }
-    console.log(request)
     jQuery.ajax({
         url: 'http://localhost:8081/api/v1/admision/registrar',
         type: "POST",
         data: JSON.stringify(request),
-        //dataType: "string",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
-            console.log("datos recibidos: "+data)
+
             if (data) {
-                console.log(data.descripcion)
-                document.location.href = "admision.php";               
-           
+                tabladata.ajax.reload();
+                
+                swal("Exito", "Se guardo la correctamente", "success")
+                $('#idAgregarAdm').modal('hide');
             } else {
-                console.log("No se pudo guardar los cambios");
+                swal("Error", "No se pudo guardar los cambios", "warning")
             }
         },
         error: function (error) {
-            console.log("mando error"+error);
-            
-        }
+            console.log(error)
+        },
+        beforeSend: function () {
+			console.log(request)
+        },
     });
-
 }
 
-
-function editaAdmision() {
-$('#idAgregarAdm').modal('show')
-}
 
 /*EVENTO ONCLICK AL BTN-eliminar*/
 $(document).on("click",".btn-eliminar",function(){
@@ -94,4 +106,15 @@ $(document).on("click",".btn-eliminar",function(){
             });       
         } 
     });
+})
+
+//evento onclick al BOTON CANCELAR1
+$(document).on("click","#idcancelar",function(){
+    //reiniciar Validacion
+   // $("#idadmision").data("bootstrapValidator").resetForm(true);
+
+    //limpiar controles
+    $("#idadmision").trigger("reset");		
+    $("#idcod").val("0");			
+        
 })

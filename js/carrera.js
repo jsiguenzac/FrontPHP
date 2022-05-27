@@ -22,7 +22,7 @@ tabladata = $('#tableCarrera').DataTable({
                     $("<i>").addClass("fas fa-eye").text("Validar")
                 ).attr({ "data-informacion": JSON.stringify(row) })[0].outerHTML
                 +" | "+
-                $("<button onclick='editaCarrera()'>").addClass("btn btn-primary btn-editar btn-sm").append(
+                $("<button>").addClass("btn btn-primary btn-editar btn-sm").append(
                     $("<i>").addClass("fas fa-pen").text("Editar")
                 ).attr({ "data-informacion": JSON.stringify(row) })[0].outerHTML
                 +" | "+
@@ -42,11 +42,6 @@ tabladata = $('#tableCarrera').DataTable({
         var id,descripcion,estado, areaid;
         var row = $(this).closest('tr');
         //obtener datos de las filas de la tabla
-/*
-        cod=$(this).parents("tr").find("td")[0].innerHTML;
-        nombre=$(this).parents("tr").find("td")[1].innerHTML;
-        estado=$(this).parents("tr").find("td")[2].innerHTML;
-        */
        id = tabladata.row( row ).data().id;
        descripcion = tabladata.row( row ).data().descripcion;
        estado = tabladata.row( row ).data().estado;
@@ -78,7 +73,7 @@ function Guardar() {
             if (data) {
                 tabladata.ajax.reload();
                 
-                swal("Exito", "Se guardo la categoria", "success")
+                swal("Exito", "Se guardo la correctamente", "success")
                 $('#idAgregarCar').modal('hide');
             } else {
                 swal("Error", "No se pudo guardar los cambios", "warning")
@@ -129,7 +124,7 @@ $(document).on("click","#idcancelar",function(){
 
     //limpiar controles
     $("#idcarreras").trigger("reset");		
-    $("#id").val("0");			
+    $("#idcod").val("0");			
         
 })
 

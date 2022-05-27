@@ -86,7 +86,7 @@
                                                     <input type="text" class="form-control" id="iddescripcion" name="descripcion" placeholder="Ingrese nombre de carrera">
                                                   </div>
                                                   <div class="form-group col-md-6">
-                                                      <label for="inputTipo_habi">ESTADO</label>
+                                                      <label for="inputEstado">ESTADO</label>
                                                       <select id="idestado" name="estado" class="form-control">
                                                         <option selected>[SELECCIONE]</option>
                                                         <option>ACTIVO</option>
@@ -94,7 +94,7 @@
                                                       </select>
                                                   </div>									  
                                                   <div class="form-group col-md-9">
-                                                      <label for="inputTipo_habi">ÁREA</label>
+                                                      <label for="inputArea">ÁREA</label>
                                                       <select id="idarea" name="area" class="form-control">
                                                         <option selected>[SELECCIONE]</option>
                                                       </select>

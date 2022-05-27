@@ -79,13 +79,13 @@
                                       <!--inicio de cajas --------->
                                             <form id="idadmision" action=" " method="post">
                                             <div class="form-row">
-                                              <input type="text" class="form-control col-sm-2" id="id" name="id" value="0" hidden="">  
+                                              <input type="text" class="form-control col-sm-2" id="idcod" name="id" value="0" hidden="">  
                                                   <div class="form-group col-md-6">
                                                     <label for="inputDescripcion">NOMBRE</label>
                                                     <input type="text" class="form-control" id="iddescripcion" name="descripcion" placeholder="Ingrese nombre de admision">
                                                   </div>
                                                   <div class="form-group col-md-6">
-                                                      <label for="inputTipo_habi">ESTADO</label>
+                                                      <label for="inputEstado">ESTADO</label>
                                                       <select id="idestado" name="estado" class="form-control">
                                                         <option selected>[SELECCIONE]</option>
                                                         <option>ACTIVO</option>
@@ -95,7 +95,7 @@
                                               </div>	
                                                   <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger" id="idcancelar" data-bs-dismiss="modal">CANCELAR</button>
-                                                    <button type="submit" class="btn btn-success" onclick="RegistrarAdmision()">GRABAR</button>
+                                                    <button type="submit" class="btn btn-success" onclick="Guardar()">GRABAR</button>
                                                   </div>
                                             </form>	
                                     </div>	      
