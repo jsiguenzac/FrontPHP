@@ -53,11 +53,12 @@
                           <th>ACCIONES</th>
                           </tr>
                         </thead>
-                        <tbody style="text-align: center;">
-
-                        </tbody>
-                    </table>                    
-                  </div>
+                        <tbody id="body" style="text-align: center;">
+                         
+                        </tbody>                        
+                    </table>    
+                      <div id="alertTable" style="display:none; margin-top:10px;" class="alert alert-warning rounded" role="alert">No hay registros...!</div>
+                   </div>
                 </div>
               <!-- /.card-body -->
               </div>

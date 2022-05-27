@@ -47,15 +47,16 @@
                     <table id="tableCarrera" class="table table-bordered table-hover table-striped">
                         <thead class="table-dark">
                           <tr style="text-align: center;">
-                          <th>ID</th>
+                          <th>Nº</th>
                           <th>NOMBRE</th>
                           <th>ESTADO</th>
+                          <th style="display: none;"></th>
                           <th>AREA</th>
                           <th>ACCIONES</th>
                           </tr>
                         </thead>
                         <tbody style="text-align: center;">
-
+                          
                         </tbody>
                     </table>                    
                   </div>
@@ -77,9 +78,9 @@
                                     </div>
                                     <div class="modal-body">
                                       <!--inicio de cajas --------->
-                                            <form id="idcarreras" action=" " method="post">
+                                            <form id="idcarreras" action=" " method="post" autocomplete="off">
                                             <div class="form-row">
-                                              <input type="text" class="form-control col-sm-2" id="id" name="id" value="0" hidden="">  
+                                              <input type="text" class="form-control col-sm-2" id="idcod" name="id" value="0" hidden="">  
                                                   <div class="form-group col-md-6">
                                                     <label for="inputDescripcion">NOMBRE</label>
                                                     <input type="text" class="form-control" id="iddescripcion" name="descripcion" placeholder="Ingrese nombre de carrera">
@@ -94,14 +95,15 @@
                                                   </div>									  
                                                   <div class="form-group col-md-9">
                                                       <label for="inputTipo_habi">ÁREA</label>
-                                                      <select id="idarea" name="area_id" class="form-control">
-                                                        <option selected>[SELECCIONE]</option>									        
+                                                      <select id="idarea" name="area" class="form-control">
+                                                        <option selected>[SELECCIONE]</option>
                                                       </select>
                                                   </div>						   
                                               </div>	
                                                   <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger" id="idcancelar" data-bs-dismiss="modal">CANCELAR</button>
-                                                    <button type="submit" class="btn btn-success" onclick="RegistrarCarreras()">GRABAR</button>
+                                                    <if ></if>
+                                                    <button type="submit" class="btn btn-success" onclick="Guardar()">GRABAR</button>                                                                   
                                                   </div>
                                             </form>	
                                     </div>	      

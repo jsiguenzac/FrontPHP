@@ -14,6 +14,7 @@ tabladata = $('#tableCarrera').DataTable({
         { "data": "id" },
         { "data": "descripcion" },
         { "data": "estado" },
+        { "data": "area.id", visible: false, searchseable: true},
         { "data": "area.descripcion" },
         {
             "data": "id", "render": function (data, type, row, meta) {
@@ -35,45 +36,63 @@ tabladata = $('#tableCarrera').DataTable({
         "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
     }
     });
+    loadCombo();
+        /*EVENTO ONCLICK AL BTN-EDIT*/
+    $(document).on("click",".btn-editar",function(){
+        var id,descripcion,estado, areaid;
+        var row = $(this).closest('tr');
+        //obtener datos de las filas de la tabla
+/*
+        cod=$(this).parents("tr").find("td")[0].innerHTML;
+        nombre=$(this).parents("tr").find("td")[1].innerHTML;
+        estado=$(this).parents("tr").find("td")[2].innerHTML;
+        */
+       id = tabladata.row( row ).data().id;
+       descripcion = tabladata.row( row ).data().descripcion;
+       estado = tabladata.row( row ).data().estado;
+        areaid = tabladata.row( row ).data().area.id;
+        //mostrar datos 
+        $("#idcod").val(id);
+        $("#iddescripcion").val(descripcion);
+        $("#idestado").val(estado);
+        $("#idarea").val(areaid);
+        $('#idAgregarCar').modal('show'); //abrir modal
+    })
+
 });
 
-// AGREGAR CARRERAS
-function RegistrarCarreras() {
+// AGREGAR/ACTUALIZAR CARRERAS
+function Guardar() {
     var request = {
-        descripcion:$("#iddescripcion").val(),
-        estado:$("#idestado").val(),
-        //area:$("#idarea").val()
+            id:$("#idcod").val(),
+            descripcion:$("#iddescripcion").val(),
+            estado:$("#idestado").val()
     }
-    console.log(request)
     jQuery.ajax({
         url: 'http://localhost:8081/api/v1/carrera/registrar/area/1',
         type: "POST",
         data: JSON.stringify(request),
-        //el tipo de dato que devolvera el servidor 
-        //dataType: "string",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
-            console.log("datos recibidos: "+data)
-            if (data) {
-                console.log(data.descripcion)
-                document.location.href = "carrera.php";                
-            //$('#mensaje').addClass('alert alert-dark').html('📧Revisa tu correo para confirmar tu cuenta...')
 
+            if (data) {
+                tabladata.ajax.reload();
+                
+                swal("Exito", "Se guardo la categoria", "success")
+                $('#idAgregarCar').modal('hide');
             } else {
-                console.log("No se pudo guardar los cambios");
+                swal("Error", "No se pudo guardar los cambios", "warning")
             }
         },
         error: function (error) {
-            console.log("mando error"+error);
-            //$.LoadingOverlay("hide");
-        }
+            console.log(error)
+        },
+        beforeSend: function () {
+			console.log(request)
+        },
     });
+}
 
-}
-// EDITAR CARRERA
-function editaCarrera() {
-$('#idAgregarCar').modal('show')
-}
 
 /*EVENTO ONCLICK AL BTN-eliminar*/
 $(document).on("click",".btn-eliminar",function(){
@@ -89,16 +108,44 @@ $(document).on("click",".btn-eliminar",function(){
         buttons: true,
     })
     .then((willDelete) => {        
-        if (willDelete) {
-            $.ajax({
-                url:"http://localhost:8081/api/v1/carrera/eliminar/"+cod,
-                type:"DELETE",
-                success:function(){
-                    swal("Ok","Se eliminó correctamente!","success").then(function(){
-                        window.location="carrera.php";
-                    });
-                }
-            });       
-        } 
+        if (willDelete) {           
+                $.ajax({
+                    url:"http://localhost:8081/api/v1/carrera/eliminar/"+cod,
+                    type:"DELETE",
+                    success:function(){
+                        swal("Ok","Se eliminó correctamente!","success").then(function(){
+                            window.location="carrera.php";
+                        });
+                    }
+                });             
+        }
     });
 })
+
+//evento onclick al BOTON CANCELAR1
+$(document).on("click","#idcancelar",function(){
+    //reiniciar Validacion
+   // $("#idcarreras").data("bootstrapValidator").resetForm(true);
+
+    //limpiar controles
+    $("#idcarreras").trigger("reset");		
+    $("#id").val("0");			
+        
+})
+
+function loadCombo(){     
+    $.ajax({
+    url:"http://localhost:8081/api/v1/area/listado",
+    type:"GET",
+    datatype: "json",
+    success:function(response){
+               $.each(response,function(index, fila){
+                    $('#idarea').append("<option value='"+fila.id+"'>"+fila.descripcion+"</opction>")
+                    //$('#idarea').select2();
+                });
+    }
+}); 
+}
+
+
+

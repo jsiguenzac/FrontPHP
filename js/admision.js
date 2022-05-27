@@ -9,7 +9,7 @@ tabladata = $('#tableAdmision').DataTable({
         //para que liste papi
         "dataSrc": ""
     },
-    "columns": [
+    "columns": [       
         { "data": "id" },
         { "data": "descripcion" },
         { "data": "estado" },
@@ -29,6 +29,7 @@ tabladata = $('#tableAdmision').DataTable({
         "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
     }
     });
+      
 });
 
 // AGREGAR ADMISION
@@ -36,30 +37,27 @@ function RegistrarAdmision() {
     var request = {
         descripcion:$("#iddescripcion").val(),
         estado:$("#idestado").val(),
-        //area:$("#idarea").val()
     }
     console.log(request)
     jQuery.ajax({
         url: 'http://localhost:8081/api/v1/admision/registrar',
         type: "POST",
         data: JSON.stringify(request),
-        //el tipo de dato que devolvera el servidor 
         //dataType: "string",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
             console.log("datos recibidos: "+data)
             if (data) {
                 console.log(data.descripcion)
-                document.location.href = "carrera.php";                
-            //$('#mensaje').addClass('alert alert-dark').html('📧Revisa tu correo para confirmar tu cuenta...')
-
+                document.location.href = "admision.php";               
+           
             } else {
                 console.log("No se pudo guardar los cambios");
             }
         },
         error: function (error) {
             console.log("mando error"+error);
-            //$.LoadingOverlay("hide");
+            
         }
     });
 

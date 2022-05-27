@@ -47,7 +47,7 @@
                     <table id="tablePostulantes" class="table table-bordered table-hover table-striped">
                         <thead class="table-dark">
                           <tr style="text-align: center;">
-                          <th>ID</th>
+                          <th>Nº</th>
                           <th>EMAIL</th>
                           <th>IMAGEN URL</th>
                           <th>APELLIDO</th>
@@ -121,8 +121,7 @@
     <!--FIN DE CONTENIDO DE CADA HTML-->
 
     <?php require('./layout/footer2.php')?>
-  
- <script></script>
+
 
 </body>
 </html>
