@@ -39,30 +39,40 @@ tabladata = $('#tablePostulante').DataTable({
     }
     });
 
-    ////////////FALTA IMpl
-        /*EVENTO ONCLICK AL BTN-EDIT*/ 
+    /*EVENTO ONCLICK AL BTN-EDIT*/ 
     $(document).on("click",".btn-editar",function(){
-        var id,name,lastName, email,phone,imageUrl,studentId;
-        var row = $(this).closest('tr');
-        //obtener datos de las filas de la tabla
-       id = tabladata.row( row ).data().id;
-       name = tabladata.row( row ).data().name;
-       lastName = tabladata.row( row ).data().lastName;
-       email = tabladata.row( row ).data().email;
-       phone = tabladata.row( row ).data().phone;
-       imageUrl = tabladata.row( row ).data().imageUrl;
-       studentId = tabladata.row( row ).data().studentId;
-
-
-        //mostrar datos 
-        $("#idcod").val(id);
-        $("#iddescripcion").val(name);
-        $("#idestado").val(lastName);
-        $("#idarea").val(email);
-        $("#idarea").val(phone);
-        $("#idarea").val(imageUrl);
-        $("#idarea").val(studentId);
-        $('#idAgregarPos').modal('show'); //abrir modal
+        var nombre;
+        nombre=$(this).parents("tr").find("td")[1].innerHTML;
+        swal({
+            title: "¿Seguro que desea editar "+nombre+"?",
+            text: "Se actualizará de la lista",
+            icon: "warning",        
+            dangerMode: true,
+            buttons: true,
+        })
+        .then((willUpdate) => {        
+            if (willUpdate) {           
+                var id,name,lastName, email,phone,imageUrl,studentId;
+                var row = $(this).closest('tr');
+                //obtener datos de las filas de la tabla
+                id = tabladata.row( row ).data().id;
+                name = tabladata.row( row ).data().name;
+                lastName = tabladata.row( row ).data().lastName;
+                email = tabladata.row( row ).data().email;
+                phone = tabladata.row( row ).data().phone;
+                imageUrl = tabladata.row( row ).data().imageUrl;
+                //studentId = tabladata.row( row ).data().studentId;
+                //mostrar datos 
+                $("#idcod").val(id);
+                $("#idnombre").val(name);
+                $("#idapellido").val(lastName);
+                $("#idcorreo").val(email);
+                $("#idfono").val(phone);
+                $("#idimagen").val(imageUrl);
+                //$("#idstuid").val(studentId);
+                $('#idAgregarPos').modal('show'); //abrir modal  
+                }
+        }); 
     })
 
 });
@@ -70,9 +80,12 @@ tabladata = $('#tablePostulante').DataTable({
 // AGREGAR/ACTUALIZAR POSTULANTES
 function Guardar() {
     var request = {
-            id:$("#idcod").val(),
-            descripcion:$("#iddescripcion").val(),
-            estado:$("#idestado").val()
+        id:$("#idcod").val(),
+        name:$("#idnombre").val(),
+        lastName:$("#idapellido").val(),
+        email:$("#idcorreo").val(),
+        phone:$("#idfono").val(),
+        imageUrl:$("#idimagen").val()
     }
     jQuery.ajax({
         url: 'http://localhost:8081/api/v1/postulante/registrar',
@@ -81,11 +94,10 @@ function Guardar() {
         contentType: "application/json; charset=utf-8",
         success: function (data) {
 
-            if (data) {
-                tabladata.ajax.reload();
-                
+            if (data) {       
                 swal("Exito", "Se guardo la correctamente", "success")
                 $('#idAgregarPos').modal('hide');
+                tabladata.ajax.reload();
             } else {
                 swal("Error", "No se pudo guardar los cambios", "warning")
             }
@@ -94,7 +106,7 @@ function Guardar() {
             console.log(error)
         },
         beforeSend: function () {
-			console.log(request)
+            console.log(request)
         },
     });
 }
@@ -120,7 +132,7 @@ $(document).on("click",".btn-eliminar",function(){
                     type:"DELETE",
                     success:function(){
                         swal("Ok","Se eliminó correctamente!","success").then(function(){
-                            window.location="postulante.php";
+                            tabladata.ajax.reload();
                         });
                     }
                 });             

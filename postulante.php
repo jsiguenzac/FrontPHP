@@ -76,35 +76,38 @@
                                 <div class="modal-dialog modal-dialog-centered">
                                   <div class="modal-content">
                                     <div class="modal-header">
-                                      <h5 class="modal-title" id="staticBackdropLabel">CARRERA</h5>  
+                                      <h5 class="modal-title" id="staticBackdropLabel">POSTULANTE</h5>  
                                     </div>
                                     <div class="modal-body">
                                       <!--inicio de cajas --------->
                                             <form id="idpostulantes" action=" " method="post">
                                             <div class="form-row">
-                                              <input type="text" class="form-control col-sm-2" id="id" name="id" value="0" hidden="">  
+                                              <input type="text" class="form-control col-sm-2" id="idcod" name="id" value="0" hidden="">  
                                                   <div class="form-group col-md-6">
-                                                    <label for="inputDescripcion">NOMBRE</label>
-                                                    <input type="text" class="form-control" id="iddescripcion" name="descripcion" placeholder="Ingrese nombre del postulante">
+                                                    <label for="inputNombre">NOMBRE</label>
+                                                    <input type="text" class="form-control" id="idnombre" name="nombre" placeholder="Ingrese nombre del postulante">
                                                   </div>
                                                   <div class="form-group col-md-6">
-                                                      <label for="inputTipo_habi">ESTADO</label>
-                                                      <select id="idestado" name="estado" class="form-control">
-                                                        <option selected>[SELECCIONE]</option>
-                                                        <option>ACTIVO</option>
-                                                        <option>INACTIVO</option>									        
-                                                      </select>
-                                                  </div>									  
+                                                    <label for="inputApellido">APELLIDO</label>
+                                                    <input type="text" class="form-control" id="idapellido" name="apellido" placeholder="Ingrese apellido del postulante">
+                                                  </div>
+                                                  <div class="form-group col-md-6">
+                                                    <label for="inputCorreo">CORREO</label>
+                                                    <input type="text" class="form-control" id="idcorreo" name="correo" placeholder="Ingrese correo del postulante">
+                                                  </div>
+                                                  <div class="form-group col-md-6">
+                                                    <label for="inputFono">TELEFONO</label>
+                                                    <input type="text" class="form-control" id="idfono" name="fono" placeholder="Ingrese telefono del postulante">
+                                                  </div>
                                                   <div class="form-group col-md-9">
-                                                      <label for="inputTipo_habi">ÁREA</label>
-                                                      <select id="idarea" name="area_id" class="form-control">
-                                                        <option selected>[SELECCIONE]</option>									        
-                                                      </select>
-                                                  </div>						   
+                                                    <label for="formFileSm" class="form-label">IMAGEN</label>
+                                                    <input class="form-control form-control-sm" id="idimagen" type="file">
+                                                  </div>				   
                                               </div>	
                                                   <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger" id="idcancelar" data-bs-dismiss="modal">CANCELAR</button>
-                                                    <button type="submit" class="btn btn-success" onclick="RegistrarCarreras()">GRABAR</button>
+                                                    <if ></if>
+                                                    <button type="button" class="btn btn-success" onclick="Guardar()">GRABAR</button>
                                                   </div>
                                             </form>	
                                     </div>	      
@@ -121,7 +124,7 @@
     <!--FIN DE CONTENIDO DE CADA HTML-->
 
     <?php require('./layout/footer2.php')?>
-    <script src="./js/postulante.js"></script>
+    <script src="./js/postulante4.js"></script>
 
 </body>
 </html>
