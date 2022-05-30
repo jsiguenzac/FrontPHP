@@ -95,7 +95,7 @@
                                               </div>	
                                                   <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger" id="idcancelar" data-bs-dismiss="modal">CANCELAR</button>
-                                                    <button type="submit" class="btn btn-success"  id="idguardar" onclick="Guardar()">GRABAR</button>
+                                                    <button type="button" class="btn btn-success"  id="idguardar" onclick="Guardar()">GRABAR</button>
                                                   </div>
                                             </form>	
                                     </div>	      
@@ -113,7 +113,7 @@
 
     <?php require('./layout/footer2.php')?>
   
- <script src="./js/admision2.js"></script>
+ <script src="./js/admision3.js"></script>
 
 </body>
 </html>

@@ -78,7 +78,7 @@ function Guardar() {
             if (data) {
                 
                 
-                swal("Exito", "Se guardo la correctamente", "success")
+                swal("Exito", "Se guardo correctamente", "success")
                 $('#idAgregarAdm').modal('hide');
                 tabladata.ajax.reload();
             } else {
@@ -122,7 +122,6 @@ $(document).on("click",".btn-eliminar",function(){
         } 
     });
 })
-
 //evento onclick al BOTON CANCELAR1
 $(document).on("click","#idcancelar",function(){
     //reiniciar Validacion

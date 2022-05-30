@@ -86,7 +86,7 @@ function Guardar() {
         success: function (data) {
 
             if (data) {
-                swal("Exito", "Se guardo la correctamente", "success")
+                swal("Exito", "Se guardo correctamente", "success")
                 $('#idAgregarCar').modal('hide');
                 tabladata.ajax.reload();
             } else {
