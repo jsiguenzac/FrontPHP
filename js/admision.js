@@ -75,11 +75,11 @@ function Guardar() {
         contentType: "application/json; charset=utf-8",
         success: function (data) {
 
-            if (data) {
-                
-                
+            if (data) { 
                 swal("Exito", "Se guardo correctamente", "success")
                 $('#idAgregarAdm').modal('hide');
+                $("#idadmision").trigger("reset");		
+                $("#idcod").val("0");		
                 tabladata.ajax.reload();
             } else {
                 swal("Error", "No se pudo guardar los cambios", "warning")

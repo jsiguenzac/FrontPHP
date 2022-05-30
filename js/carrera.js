@@ -71,7 +71,7 @@ tabladata = $('#tableCarrera').DataTable({
 });
 
 // AGREGAR/ACTUALIZAR CARRERAS
-function Guardar() {
+function Guardar() {	
     var request = {
             id:$("#idcod").val(),
             descripcion:$("#iddescripcion").val(),
@@ -88,6 +88,8 @@ function Guardar() {
             if (data) {
                 swal("Exito", "Se guardo correctamente", "success")
                 $('#idAgregarCar').modal('hide');
+                $("#idcarreras").trigger("reset");		
+                $("#idcod").val("0");		
                 tabladata.ajax.reload();
             } else {
                 swal("Error", "No se pudo guardar los cambios", "warning")
