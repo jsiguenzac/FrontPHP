@@ -113,7 +113,7 @@
 
     <?php require('./layout/footer2.php')?>
   
- <script src="./js/admision.js"></script>
+ <script src="./js/admision2.js"></script>
 
 </body>
 </html>

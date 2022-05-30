@@ -43,7 +43,7 @@ tabladata = $('#tableCarrera').DataTable({
         nombre=$(this).parents("tr").find("td")[1].innerHTML;
         swal({
             title: "¿Seguro que desea editar "+nombre+"?",
-           text: "Se actualizará de la lista",
+            text: "Se actualizará de la lista",
             icon: "warning",        
             dangerMode: true,
             buttons: true,
@@ -53,9 +53,9 @@ tabladata = $('#tableCarrera').DataTable({
                 var id,descripcion,estado, areaid;
                 var row = $(this).closest('tr');
                 //obtener datos de las filas de la tabla
-               id = tabladata.row( row ).data().id;
-               descripcion = tabladata.row( row ).data().descripcion;
-               estado = tabladata.row( row ).data().estado;
+                id = tabladata.row( row ).data().id;
+                descripcion = tabladata.row( row ).data().descripcion;
+                estado = tabladata.row( row ).data().estado;
                 areaid = tabladata.row( row ).data().area.id;
                 
                 //mostrar datos 
@@ -86,10 +86,9 @@ function Guardar() {
         success: function (data) {
 
             if (data) {
-                tabladata.ajax.reload();
-                
                 swal("Exito", "Se guardo la correctamente", "success")
                 $('#idAgregarCar').modal('hide');
+                tabladata.ajax.reload();
             } else {
                 swal("Error", "No se pudo guardar los cambios", "warning")
             }
@@ -124,7 +123,7 @@ $(document).on("click",".btn-eliminar",function(){
                     type:"DELETE",
                     success:function(){
                         swal("Ok","Se eliminó correctamente!","success").then(function(){
-                            window.location="carrera.php";
+                            tabladata.ajax.reload();
                         });
                     }
                 });             

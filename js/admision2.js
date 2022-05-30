@@ -76,10 +76,11 @@ function Guardar() {
         success: function (data) {
 
             if (data) {
-                tabladata.ajax.reload();
+                
                 
                 swal("Exito", "Se guardo la correctamente", "success")
                 $('#idAgregarAdm').modal('hide');
+                tabladata.ajax.reload();
             } else {
                 swal("Error", "No se pudo guardar los cambios", "warning")
             }
@@ -114,7 +115,7 @@ $(document).on("click",".btn-eliminar",function(){
                 type:"DELETE",
                 success:function(){
                     swal("Ok","Se eliminó correctamente!","success").then(function(){
-                        window.location="admision.php";
+                        tabladata.ajax.reload();
                     });
                 }
             });       
