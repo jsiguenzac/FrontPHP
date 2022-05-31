@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
      <title>ADMISION | Cibertec</title>
-     <?php require('./layout/links.php')?>
+     <?php require('./layout/link.php')?>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     
@@ -111,7 +111,7 @@
   <!-- /.content-wrapper -->
     <!--FIN DE CONTENIDO DE CADA HTML-->
 
-    <?php require('./layout/footer2.php')?>
+    <?php require('./layout/footeer.php')?>
   
  <script src="./js/admision.js"></script>
 

@@ -17,7 +17,6 @@ tabladata = $('#tablePostulante').DataTable({
         { "data": "email" },
         { "data": "phone" },
         { "data": "imageUrl" },
-        { "data": "studentId", visible: false, searchseable: true},
         {
             "data": "id", "render": function (data, type, row, meta) {
                 return $("<button onclick='validaPostulante()'>").addClass("btn btn-info btn-valida btn-sm").append(
@@ -52,7 +51,7 @@ tabladata = $('#tablePostulante').DataTable({
         })
         .then((willUpdate) => {        
             if (willUpdate) {           
-                var id,name,lastName, email,phone,imageUrl,studentId;
+                var id,name,lastName, email,phone,imageUrl;
                 var row = $(this).closest('tr');
                 //obtener datos de las filas de la tabla
                 id = tabladata.row( row ).data().id;
@@ -61,7 +60,6 @@ tabladata = $('#tablePostulante').DataTable({
                 email = tabladata.row( row ).data().email;
                 phone = tabladata.row( row ).data().phone;
                 imageUrl = tabladata.row( row ).data().imageUrl;
-                //studentId = tabladata.row( row ).data().studentId;
                 //mostrar datos 
                 $("#idcod").val(id);
                 $("#idnombre").val(name);
@@ -69,7 +67,6 @@ tabladata = $('#tablePostulante').DataTable({
                 $("#idcorreo").val(email);
                 $("#idfono").val(phone);
                 $("#idimagen").val(imageUrl);
-                //$("#idstuid").val(studentId);
                 $('#idAgregarPos').modal('show'); //abrir modal  
                 }
         }); 
@@ -79,6 +76,15 @@ tabladata = $('#tablePostulante').DataTable({
 
 // AGREGAR/ACTUALIZAR POSTULANTES
 function Guardar() {
+    var     postFormData = new FormData($("#idpostulantes")[5]);
+        postFormData.append("id", $("#idcod").val());
+        postFormData.append("name", $("#idnombre").val());
+        postFormData.append("lastName", $("#idapellido").val());
+        postFormData.append("email", $("#idcorreo").val());
+        postFormData.append("phone", $("#idfono").val());
+        postFormData.append("imageUrl", $("#idimagen").val());
+        
+/*
     var request = {
         id:$("#idcod").val(),
         name:$("#idnombre").val(),
@@ -86,14 +92,13 @@ function Guardar() {
         email:$("#idcorreo").val(),
         phone:$("#idfono").val(),
         imageUrl:$("#idimagen").val()
-    }
+    }*/
     jQuery.ajax({
         url: 'http://localhost:8081/api/v1/postulante/registrar',
         type: "POST",
-        data: JSON.stringify(request),
+        data: JSON.stringify(postFormData),
         contentType: "application/json; charset=utf-8",
         success: function (data) {
-
             if (data) {       
                 swal("Exito", "Se guardo la correctamente", "success")
                 $('#idAgregarPos').modal('hide');
@@ -106,7 +111,7 @@ function Guardar() {
             console.log(error)
         },
         beforeSend: function () {
-            console.log(request)
+            console.log(postFormData)
         },
     });
 }
@@ -132,6 +137,9 @@ $(document).on("click",".btn-eliminar",function(){
                     type:"DELETE",
                     success:function(){
                         swal("Ok","Se eliminó correctamente!","success").then(function(){
+                            if(tabladata.row<=0){
+                                document.location.href = "postulante.php";
+                            }else
                             tabladata.ajax.reload();
                         });
                     }

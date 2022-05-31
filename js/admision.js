@@ -99,6 +99,7 @@ function Guardar() {
 $(document).on("click",".btn-eliminar",function(){
 	var cod, nombre;
 	//obtener datos de las filas de la tabla
+   
 	cod=$(this).parents("tr").find("td")[0].innerHTML;
     nombre=$(this).parents("tr").find("td")[1].innerHTML;
 	swal({
@@ -110,11 +111,16 @@ $(document).on("click",".btn-eliminar",function(){
     })
     .then((willDelete) => {        
         if (willDelete) {
+            var row = $(this).closest('td');            
+            row1 = tabladata.row( row ).length;
             $.ajax({
                 url:"http://localhost:8081/api/v1/admision/eliminar/"+cod,
                 type:"DELETE",
                 success:function(){
                     swal("Ok","Se eliminó correctamente!","success").then(function(){
+                        if(row1<=1){
+                            document.location.href = "admision.php";
+                        }else
                         tabladata.ajax.reload();
                     });
                 }
@@ -122,6 +128,8 @@ $(document).on("click",".btn-eliminar",function(){
         } 
     });
 })
+
+
 //evento onclick al BOTON CANCELAR1
 $(document).on("click","#idcancelar",function(){
     //reiniciar Validacion
