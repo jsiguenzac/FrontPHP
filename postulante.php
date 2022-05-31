@@ -123,7 +123,7 @@
     <!--FIN DE CONTENIDO DE CADA HTML-->
 
     <?php require('./layout/footeer.php')?>
-    <script src="./js/postulante5.js"></script>
+    <script src="./js/postulante.js"></script>
 
 </body>
 </html>

@@ -82,7 +82,7 @@ function Guardar() {
     request.append("lastName", $("#idapellido").val());
     request.append("email", $("#idcorreo").val());
     request.append("phone", $("#idfono").val());
-    request.append("imageUrl", $("#idimagen")[0].files[0]);
+    request.append("image", $("input[type=file]")[0].files[0]);
         
     jQuery.ajax({
         url: 'http://localhost:8081/api/v1/postulante/registrar',
@@ -91,8 +91,8 @@ function Guardar() {
         contentType: false,
         processData: false,
         cache: false,
-        data: JSON.stringify(request),
-        contentType: "application/json; charset=utf-8",
+        //data: JSON.stringify(request),
+        //contentType: "application/json; charset=utf-8",
         success: function (data) {
             if (data) {       
                 swal("Exito", "Se guardo la correctamente", "success")
