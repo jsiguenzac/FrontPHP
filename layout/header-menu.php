@@ -106,7 +106,7 @@
             </a>
           </li>
           <!-- CONFIGITACIONES -->
-          <li class="nav-item menu-open">
+          <li class="nav-item menu-close">
             <a href="#" class="nav-link active">
             <img src="./img/configuraciones.ico" alt="Exam Face Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
               <p>
