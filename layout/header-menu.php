@@ -61,6 +61,15 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="modalidad.php" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+                MODALIDAD
+                <hr color="White">
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="carrera.php" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
@@ -89,7 +98,7 @@
           </li>
           <li class="nav-item">
             <a href="verificacion.html" class="nav-link">
-              <span class="lnr lnr-eye"></span>
+              <i class="nav-icon far fa-image"></i>
               <p>
                 VERIFICACION
                 <hr color="White">

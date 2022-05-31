@@ -76,32 +76,29 @@ tabladata = $('#tablePostulante').DataTable({
 
 // AGREGAR/ACTUALIZAR POSTULANTES
 function Guardar() {
-    var     postFormData = new FormData($("#idpostulantes")[5]);
-        postFormData.append("id", $("#idcod").val());
-        postFormData.append("name", $("#idnombre").val());
-        postFormData.append("lastName", $("#idapellido").val());
-        postFormData.append("email", $("#idcorreo").val());
-        postFormData.append("phone", $("#idfono").val());
-        postFormData.append("imageUrl", $("#idimagen").val());
+    var request = new FormData();
+    request.append("id", $("#idcod").val());
+    request.append("name", $("#idnombre").val());
+    request.append("lastName", $("#idapellido").val());
+    request.append("email", $("#idcorreo").val());
+    request.append("phone", $("#idfono").val());
+    request.append("imageUrl", $("#idimagen")[0].files[0]);
         
-/*
-    var request = {
-        id:$("#idcod").val(),
-        name:$("#idnombre").val(),
-        lastName:$("#idapellido").val(),
-        email:$("#idcorreo").val(),
-        phone:$("#idfono").val(),
-        imageUrl:$("#idimagen").val()
-    }*/
     jQuery.ajax({
         url: 'http://localhost:8081/api/v1/postulante/registrar',
+        data: request,
         type: "POST",
-        data: JSON.stringify(postFormData),
+        contentType: false,
+        processData: false,
+        cache: false,
+        data: JSON.stringify(request),
         contentType: "application/json; charset=utf-8",
         success: function (data) {
             if (data) {       
                 swal("Exito", "Se guardo la correctamente", "success")
                 $('#idAgregarPos').modal('hide');
+                $("#idpostulantes").trigger("reset");		
+                $("#idcod").val("0");		
                 tabladata.ajax.reload();
             } else {
                 swal("Error", "No se pudo guardar los cambios", "warning")
@@ -111,7 +108,7 @@ function Guardar() {
             console.log(error)
         },
         beforeSend: function () {
-            console.log(postFormData)
+            console.log(request)
         },
     });
 }
