@@ -24,8 +24,8 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index.html" class="brand-link">
-      <img src="./img/usuario.png" alt="Exam Face Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Exam Face</span>
+      <img src="./img/icoweb.png" alt="Exam Face Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Face Exam</span>
     </a>
 
     <!-- Sidebar -->
@@ -33,7 +33,7 @@
       <!-- Sidebar USUARIO panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="./img/user.png" class="img-circle elevation-2" alt="User Image">
+          <img src="./img/usuario.ico" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">USER NAME</a>
@@ -44,7 +44,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
             <a href="index.php" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
+            <img src="./img/home.ico" alt="Exam Face Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
               <p>
                 INICIO
                 <hr color="White">
@@ -53,7 +53,7 @@
           </li>
           <li class="nav-item">
             <a href="admision.php" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
+            <img src="./img/admision.ico" alt="Exam Face Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
               <p>
                 ADMISION
                 <hr color="White">
@@ -62,7 +62,7 @@
           </li>
           <li class="nav-item">
             <a href="modalidad.php" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
+            <img src="./img/modalidad.ico" alt="Exam Face Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
               <p>
                 MODALIDAD
                 <hr color="White">
@@ -71,7 +71,7 @@
           </li>
           <li class="nav-item">
             <a href="carrera.php" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
+              <img src="./img/carreras.ico" alt="Exam Face Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
               <p>
                 CARRERAS
                 <hr color="White">
@@ -80,7 +80,7 @@
           </li>
           <li class="nav-item">
             <a href="postulante.php" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
+            <img src="./img/postulantes.ico" alt="Exam Face Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
               <p>
                 POSTULANTES
                 <hr color="White">
@@ -89,16 +89,16 @@
           </li>
           <li class="nav-item">
             <a href="ficha.html" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
+            <img src="./img/ficha.ico" alt="Exam Face Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
               <p>
-                FICHA DE POSTULACION
+                FICHA POSTULACION
                 <hr color="White">
               </p>
             </a>
           </li>
           <li class="nav-item">
             <a href="verificacion.html" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
+            <img src="./img/verificacion.ico" alt="Exam Face Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
               <p>
                 VERIFICACION
                 <hr color="White">
@@ -108,7 +108,7 @@
           <!-- CONFIGITACIONES -->
           <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <img src="./img/configuraciones.ico" alt="Exam Face Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
               <p>
                 Configuraciones
                 <i class="right fas fa-angle-left"></i>
