@@ -97,7 +97,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="verificacion.html" class="nav-link">
+            <a href="verificacion.php" class="nav-link">
             <img src="./img/verificacion.ico" alt="Exam Face Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
               <p>
                 VERIFICACION
