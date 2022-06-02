@@ -78,11 +78,7 @@
                                     </div>
                                     <div class="modal-body">
                                       <!--inicio de cajas --------->
-<<<<<<< HEAD
-                                            <form id="idpostulantes" action=" " enctype="multipart/form-data" method="post">
-=======
                                             <form id="idpostulantes" action=" " method="post" enctype="multipart/form-data">
->>>>>>> d75021efdd211305831f440cebf422eaf0320f82
                                             <div class="form-row">
                                               <input type="text" class="form-control col-sm-2" id="idcod" name="id" value="0" hidden="">  
                                                   <div class="form-group col-md-6">
