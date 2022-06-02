@@ -122,7 +122,7 @@ function Guardar() {
             id:$("#idcod").val(),
             descripcion:$("#iddescripcion").val(),
             estado:$("#idestado").val(),
-            areaid:$("#").val()
+            areaid:$("#idarea").val()
     }
     jQuery.ajax({
         url: 'http://localhost:8081/api/v1/carrera/registrar/area/'+request.areaid,
@@ -133,6 +133,8 @@ function Guardar() {
 
             if (data) {
                 swal("Exito", "Se guardo correctamente", "success")
+                //reiniciar Validacion
+                $("#idAgregarCar").data("bootstrapValidator").resetForm(true);
                 $('#idAgregarCar').modal('hide');
                 $("#idcarreras").trigger("reset");		
                 $("#idcod").val("0");		

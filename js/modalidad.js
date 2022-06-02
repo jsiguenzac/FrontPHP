@@ -108,6 +108,8 @@ function Guardar() {
 
             if (data) { 
                 swal("Exito", "Se guardo correctamente", "success")
+                //reiniciar Validacion
+                $("#idAgregarModa").data("bootstrapValidator").resetForm(true);
                 $('#idAgregarModa').modal('hide');
                 $("#idmodalidad").trigger("reset");		
                 $("#idcod").val("0");		

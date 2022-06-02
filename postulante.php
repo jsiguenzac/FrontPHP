@@ -51,7 +51,8 @@
                           <th>NOMBRE</th>
                           <th>APELLIDO</th>
                           <th>EMAIL</th>
-                          <th>TELEFONO</th>                                      
+                          <th>TELEFONO</th>  
+                          <th style="display: none;"></th>                                    
                           <th>ACCIONES</th>
                           </tr>
                         </thead>

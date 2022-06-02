@@ -96,6 +96,7 @@ tabladata = $('#tablePostulante').DataTable({
 
     /*EVENTO ONCLICK AL BTN-EDIT*/ 
     $(document).on("click",".btn-editar",function(){
+        //reiniciar Validacion
         $("#idAgregarPos").data("bootstrapValidator").resetForm(true);
         var nombre;
         nombre=$(this).parents("tr").find("td")[1].innerHTML;
@@ -159,9 +160,11 @@ function Guardar() {
         success: function (data) {
             if (data) {       
                 swal("Exito", "Se guardo la correctamente", "success")
+                //reiniciar Validacion
+                $("#idAgregarPos").data("bootstrapValidator").resetForm(true);	
                 $('#idAgregarPos').modal('hide');
                 $("#idpostulantes").trigger("reset");		
-                $("#idcod").val("0");		
+                $("#idcod").val("0");
                 tabladata.ajax.reload();
             } else {
                 swal("Error", "No se pudo guardar los cambios", "warning")
@@ -192,13 +195,15 @@ $(document).on("click",".btn-eliminar",function(){
         buttons: true,
     })
     .then((willDelete) => {        
-        if (willDelete) {           
+        if (willDelete) {      
+            var row = $(this).closest('td');            
+            var row1 = tabladata.row( row ).length;     
                 $.ajax({
                     url:"http://localhost:8081/api/v1/postulante/eliminar/"+cod,
                     type:"DELETE",
                     success:function(){
                         swal("Ok","Se eliminó correctamente!","success").then(function(){
-                            if(tabladata.row<=0){
+                            if(row1<=1){
                                 document.location.href = "postulante.php";
                             }else
                             tabladata.ajax.reload();

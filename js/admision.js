@@ -108,9 +108,11 @@ function Guardar() {
 
             if (data) { 
                 swal("Exito", "Se guardo correctamente", "success")
+                //reiniciar Validacion
+                $("#idAgregarAdm").data("bootstrapValidator").resetForm(true);
                 $('#idAgregarAdm').modal('hide');
                 $("#idadmision").trigger("reset");		
-                $("#idcod").val("0");		
+                $("#idcod").val("0");	
                 tabladata.ajax.reload();
             } else {
                 swal("Error", "No se pudo guardar los cambios", "warning")
