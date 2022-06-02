@@ -81,7 +81,7 @@
                                       <!--inicio de cajas --------->
                                             <form id="idpostulantes" action=" " method="post" enctype="multipart/form-data">
                                             <div class="form-row">
-                                              <input type="text" class="form-control col-sm-2" id="idcod" name="id" value="0" hidden="">  
+                                              <input type="text" class="form-control col-sm-2" id="idcod" name="id" hidden="">  
                                                   <div class="form-group col-md-6">
                                                     <label for="inputNombre">NOMBRE</label>
                                                     <input type="text" class="form-control" id="idnombre" name="nombre" placeholder="Ingrese nombre del postulante">
@@ -117,7 +117,7 @@
                                                   <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger" id="idcancelar" data-bs-dismiss="modal">CANCELAR</button>
                                                     <if ></if>
-                                                    <button type="submit" class="btn btn-success" onclick="Guardar()">GRABAR</button>
+                                                    <button type="submit" class="btn btn-success" onclick="Editar()">GRABAR</button>
                                                   </div>
                                             </form>	
                                     </div>	      

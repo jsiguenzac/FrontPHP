@@ -108,7 +108,8 @@ tabladata = $('#tablePostulante').DataTable({
             buttons: true,
         })
         .then((willUpdate) => {        
-            if (willUpdate) {           
+            if (willUpdate) {      
+                
                 var id,name,lastName, email,phone,imageUrl;
                 var row = $(this).closest('tr');
                 //obtener datos de las filas de la tabla
@@ -118,6 +119,7 @@ tabladata = $('#tablePostulante').DataTable({
                 email = tabladata.row( row ).data().email;
                 phone = tabladata.row( row ).data().phone;
                 imageUrl = tabladata.row( row ).data().imageUrl;
+                console.log('Valor id'+id);
                 //mostrar datos 
                 $("#idcod").val(id);
                 $("#idnombre").val(name);
@@ -147,7 +149,7 @@ function Guardar() {
     request.append("email", $("#idcorreo").val());
     request.append("phone", $("#idfono").val());
     request.append("image", $("input[type=file]")[0].files[0]);
-        
+    console.log("Valor del Id"+$("#idcod").val());
     jQuery.ajax({
         url: 'http://localhost:8081/api/v1/postulante/registrar',
         data: request,
@@ -180,6 +182,53 @@ function Guardar() {
 }
 }
 
+function Editar() {
+    var nombre=$("#idnombre").val();
+    var ap=$("#idapellido").val();
+    var cor=$("#idcorreo").val();
+    var fon=$("#idfono").val();
+    var img=$("input[type=file]")[0].files[0];
+    if(nombre != "" && ap !="" && cor !="" && fon !=""){
+    var request = new FormData();
+    //request.append("id", $("#idcod").val());
+    request.append("name", $("#idnombre").val());
+    request.append("lastName", $("#idapellido").val());
+    request.append("email", $("#idcorreo").val());
+    request.append("phone", $("#idfono").val());
+    request.append("image", $("input[type=file]")[0].files[0]);
+    request.append('_method', 'PUT');
+    console.log("Valor del Id"+$("#idcod").val());
+    jQuery.ajax({
+        url: 'http://localhost:8081/api/v1/postulante/editar/'+$("#idcod").val(),
+        data: request,
+        type: "POST",
+        contentType: false,
+        processData: false,
+        cache: false,
+        //data: JSON.stringify(request),
+        //contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            if (data) {       
+                swal("Exito", "Se guardo la correctamente", "success")
+                //reiniciar Validacion
+                $("#idAgregarPos").data("bootstrapValidator").resetForm(true);	
+                $('#idAgregarPos').modal('hide');
+                $("#idpostulantes").trigger("reset");		
+                $("#idcod").val("0");
+                tabladata.ajax.reload();
+            } else {
+                swal("Error", "No se pudo guardar los cambios", "warning")
+            }
+        },
+        error: function (error) {
+            console.log(error);
+        },
+        beforeSend: function () {
+            console.log(request)
+        },
+    });
+}
+}
 
 /*EVENTO ONCLICK AL BTN-eliminar*/
 $(document).on("click",".btn-eliminar",function(){
