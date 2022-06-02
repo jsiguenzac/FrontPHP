@@ -75,7 +75,7 @@ tabladata = $('#tablePostulante').DataTable({
         { "data": "imageUrl", visible: false, searchseable: true},
         {
             "data": "id", "render": function (data, type, row, meta) {
-                return $("<a href='verificacion.php?id=1'>").addClass("btn btn-info btn-valida btn-sm").append(
+                return $("<a>").attr('href','verificacion.php?id='+row.id).addClass("btn btn-info btn-valida btn-sm").append(
                     $("<i>").addClass("fas fa-eye").text("Validar")
                 ).attr({ "data-informacion": JSON.stringify(row) })[0].outerHTML
                 +" | "+

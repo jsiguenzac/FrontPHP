@@ -25,7 +25,7 @@
                       <!-- Button trigger modal -->
                       <button type="button" class="btn btn-sm  ml-auto btn-success" data-bs-toggle="modal" data-bs-target="#idAgregarPos">
                         AGREGAR POSTULANTE <i class="fas fa-plus"></i> 
-                      </button>      
+                      </button>                              
             </ol>
           </div>
         </div>
