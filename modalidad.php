@@ -85,16 +85,15 @@
                                                   </div>
                                                   <div class="form-group col-md-6">
                                                       <label for="inputEstado">ESTADO</label>
-                                                      <select id="idestado" name="estado" class="form-control">
-                                                        <option selected>[SELECCIONE]</option>
-                                                        <option>ACTIVO</option>
+                                                      <select id="idestado" name="estado" class="form-control">                                                      
+                                                        <option selected>ACTIVO</option>
                                                         <option>INACTIVO</option>									        
                                                       </select>
                                                   </div>									  					   
                                               </div>	
                                                   <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger" id="idcancelar" data-bs-dismiss="modal">CANCELAR</button>
-                                                    <button type="button" class="btn btn-success"  id="idguardar" onclick="Guardar()">GRABAR</button>
+                                                    <button type="submit" class="btn btn-success"  id="idguardar" onclick="Guardar()">GRABAR</button>
                                                   </div>
                                             </form>	
                                     </div>	      

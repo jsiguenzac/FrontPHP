@@ -9,3 +9,4 @@
   <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="css/adminlte.min.css">
+  <link rel="stylesheet" href="css/validaCSS.css">

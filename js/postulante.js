@@ -1,6 +1,62 @@
-// LISTAR CARRERA
 var tabladata;
 $(document).ready(function() {    
+    $('#idAgregarPos').bootstrapValidator({		
+		fields:{	
+			nombre:{
+				validators:{
+ 			 		notEmpty:{
+ 			 			message:'Campo Nombre es obligatorio.<br>'	
+ 			 		},
+ 			 		regexp:{
+                        regexp:/^[a-zA-ZÁ-ÿ\s]{1,20}$/,
+                        message:'Campo Nombre máx. 20 caracteres.<br>'
+			 		}
+ 			 	}					
+			},
+			
+			apellido:{
+				validators:{
+					notEmpty:{
+						message:'Campo Apellido es obligatorio.<br>'
+					},
+ 			 		regexp:{
+			 			regexp:/^[a-zA-ZÁ-ÿ\s]{1,20}$/,
+			 			message:'Campo Apellido máx. 20 caracteres.<br>>'
+			 		}
+				}				
+			},
+						
+			correo:{
+				validators:{
+					notEmpty:{
+						message:'Campo Correo es obligatorio.<br>'
+					},
+ 			 		regexp:{
+			 			regexp:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+			 			message:'Campo Correo presenta "@" y ".com".<br>'
+			 		}
+				}					
+			},
+            fono:{
+				validators:{
+					notEmpty:{
+						message:'Campo Teléfono es obligatorio.<br>'
+					},
+ 			 		regexp:{
+			 			regexp:/^\d{1,9}$/,
+			 			message:'Campo Teléfono es maximo 9 digitos.<br>'
+			 		}
+				}					
+			},
+            image:{
+				validators:{
+					notEmpty:{
+						message:'Campo Imagen es obligatorio.<br>'
+					}		 	
+				}				
+			},
+		}		
+	});	
 tabladata = $('#tablePostulante').DataTable({
     responsive:true,
     "ajax": {
@@ -40,6 +96,7 @@ tabladata = $('#tablePostulante').DataTable({
 
     /*EVENTO ONCLICK AL BTN-EDIT*/ 
     $(document).on("click",".btn-editar",function(){
+        $("#idAgregarPos").data("bootstrapValidator").resetForm(true);
         var nombre;
         nombre=$(this).parents("tr").find("td")[1].innerHTML;
         swal({
@@ -76,6 +133,12 @@ tabladata = $('#tablePostulante').DataTable({
 
 // AGREGAR/ACTUALIZAR POSTULANTES
 function Guardar() {
+    var nombre=$("#idnombre").val();
+    var ap=$("#idapellido").val();
+    var cor=$("#idcorreo").val();
+    var fon=$("#idfono").val();
+    var img=$("input[type=file]")[0].files[0];
+    if(nombre != "" && ap !="" && cor !="" && fon !="" && img ){
     var request = new FormData();
     request.append("id", $("#idcod").val());
     request.append("name", $("#idnombre").val());
@@ -91,6 +154,8 @@ function Guardar() {
         contentType: false,
         processData: false,
         cache: false,
+        //data: JSON.stringify(request),
+        //contentType: "application/json; charset=utf-8",
         success: function (data) {
             if (data) {       
                 swal("Exito", "Se guardo la correctamente", "success")
@@ -109,6 +174,7 @@ function Guardar() {
             console.log(request)
         },
     });
+}
 }
 
 
@@ -146,7 +212,7 @@ $(document).on("click",".btn-eliminar",function(){
 //evento onclick al BOTON CANCELAR1
 $(document).on("click","#idcancelar",function(){
     //reiniciar Validacion
-   // $("#idpostulantes").data("bootstrapValidator").resetForm(true);
+    $("#idAgregarPos").data("bootstrapValidator").resetForm(true);
 
     //limpiar controles
     $("#idpostulantes").trigger("reset");		

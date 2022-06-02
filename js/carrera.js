@@ -1,6 +1,47 @@
 // LISTAR CARRERA
 var tabladata;
-$(document).ready(function() {    
+$(document).ready(function() {
+    $('#idAgregarCar').bootstrapValidator({		
+		fields:{	
+			descripcion:{
+				validators:{
+ 			 		notEmpty:{
+ 			 			message:'Campo Usuario es obligatorio.<br>'	
+ 			 		},
+ 			 		regexp:{
+                        regexp:/^[a-zA-Z0-9\ñ\Ñ\á\é\í\ó\ú\Á\É\Í\Ó\Ú\@\_\''\""\-\*\+\!\¿\?\¡\(\)\·\$\#\|\´\/\.\{\}\=\Ä\Ë\Ï\Ö\Ü\ä\ë\ï\ö\ü\%\[\]\<\,\>\ ]{1,20}$/,
+                        message:'Campo Usuario máx. 20 caracteres.<br>'
+			 		}
+ 			 	}					
+			},
+			
+			estado:{
+				validators:{
+					notEmpty:{
+						message:'Campo Estado es obligatorio.<br>'
+					},
+ 			 		regexp:{
+			 			regexp:/^[a-zA-Z0-9\ ]{2,15}$/,
+			 			message:'Seleccione un Estado.<br>'
+			 		}
+				}				
+			},
+						
+			area:{
+				validators:{
+					notEmpty:{
+						message:'Campo Área es obligatorio.<br>'
+					},
+ 			 		regexp:{
+			 			regexp:/^[0-9]{1,2}$/,
+			 			message:'Seleccione una Área.<br>'
+			 		}
+				}					
+			}
+			
+		}		
+	});	
+    
 tabladata = $('#tableCarrera').DataTable({
     responsive:true,
     "ajax": {
@@ -39,6 +80,7 @@ tabladata = $('#tableCarrera').DataTable({
     loadCombo();
         /*EVENTO ONCLICK AL BTN-EDIT*/
     $(document).on("click",".btn-editar",function(){
+        $("#idAgregarCar").data("bootstrapValidator").resetForm(true);
         var nombre;
         nombre=$(this).parents("tr").find("td")[1].innerHTML;
         swal({
@@ -72,11 +114,15 @@ tabladata = $('#tableCarrera').DataTable({
 
 // AGREGAR/ACTUALIZAR CARRERAS
 function Guardar() {	
+    var nombre=$("#iddescripcion").val();
+    var est=$("#idestado").val();
+    var are=$("#idarea").val();
+    if(nombre != "" && est !="" && are !=""){
     var request = {
             id:$("#idcod").val(),
             descripcion:$("#iddescripcion").val(),
             estado:$("#idestado").val(),
-            areaid:$("#idarea").val()
+            areaid:$("#").val()
     }
     jQuery.ajax({
         url: 'http://localhost:8081/api/v1/carrera/registrar/area/'+request.areaid,
@@ -102,6 +148,7 @@ function Guardar() {
 			console.log(request)
         },
     });
+}
 }
 
 
@@ -136,7 +183,7 @@ $(document).on("click",".btn-eliminar",function(){
 //evento onclick al BOTON CANCELAR1
 $(document).on("click","#idcancelar",function(){
     //reiniciar Validacion
-   // $("#idcarreras").data("bootstrapValidator").resetForm(true);
+   $("#idAgregarCar").data("bootstrapValidator").resetForm(true);
 
     //limpiar controles
     $("#idcarreras").trigger("reset");		

@@ -1,5 +1,32 @@
 var tabladata;
 $(document).ready(function() {    
+    $('#idAgregarModa').bootstrapValidator({		
+		fields:{	
+			descripcion:{
+				validators:{
+ 			 		notEmpty:{
+ 			 			message:'Campo Usuario es obligatorio.<br>'	
+ 			 		},
+ 			 		regexp:{
+                        regexp:/^[a-zA-Z0-9\ñ\Ñ\á\é\í\ó\ú\Á\É\Í\Ó\Ú\@\_\''\""\-\*\+\!\¿\?\¡\(\)\·\$\#\|\´\/\.\{\}\=\Ä\Ë\Ï\Ö\Ü\ä\ë\ï\ö\ü\%\[\]\<\,\>\ ]{1,20}$/,
+                        message:'Campo Usuario máx. 20 caracteres.<br>'
+			 		}
+ 			 	}					
+			},
+			
+			estado:{
+				validators:{
+					notEmpty:{
+						message:'Campo Estado es obligatorio.<br>'
+					},
+ 			 		regexp:{
+			 			regexp:/^[a-zA-Z0-9\ ]{2,15}$/,
+			 			message:'Seleccione un Estado.<br>'
+			 		}
+				}				
+			}
+        }       
+    });
 tabladata = $('#tableModalidad').DataTable({
     responsive:true,
     "ajax": {
@@ -32,8 +59,10 @@ tabladata = $('#tableModalidad').DataTable({
       
   /*EVENTO ONCLICK AL BTN-EDIT*/
   $(document).on("click",".btn-editar",function(){
-    var nombre;
+    $("#idAgregarModa").data("bootstrapValidator").resetForm(true);
+    var nombre, estado;
     nombre=$(this).parents("tr").find("td")[1].innerHTML;
+    estado=$(this).parents("tr").find("td")[2].innerHTML;
     swal({
         title: "¿Seguro que desea editar "+nombre+"?",
        text: "Se actualizará de la lista",
@@ -48,7 +77,7 @@ tabladata = $('#tableModalidad').DataTable({
 
         id = tabladata.row( row ).data().id;
         descripcion = tabladata.row( row ).data().descripcion;
-        estado = tabladata.row( row ).data().estado;
+        estado = estado;
             //mostrar datos 
             $("#idcod").val(id);
             $("#iddescripcion").val(descripcion);
@@ -61,8 +90,10 @@ tabladata = $('#tableModalidad').DataTable({
 
 });
 
-/*AGREGAR/ACTUALIZAR CARRERAS*/
+/*AGREGAR/ACTUALIZAR MODALIDAD*/
 function Guardar() {
+    var nombre=$("#iddescripcion").val();
+    if(nombre != "" ){
     var request = {
             id:$("#idcod").val(),
             descripcion:$("#iddescripcion").val(),
@@ -93,6 +124,8 @@ function Guardar() {
         },
     });
 }
+}
+
 
 
 /*EVENTO ONCLICK AL BTN-eliminar*/
@@ -133,7 +166,7 @@ $(document).on("click",".btn-eliminar",function(){
 //evento onclick al BOTON CANCELAR1
 $(document).on("click","#idcancelar",function(){
     //reiniciar Validacion
-   // $("#idadmision").data("bootstrapValidator").resetForm(true);
+    $("#idAgregarModa").data("bootstrapValidator").resetForm(true);
 
     //limpiar controles
     $("#idmodalidad").trigger("reset");		

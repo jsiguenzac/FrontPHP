@@ -1,5 +1,33 @@
 var tabladata;
 $(document).ready(function() {    
+    $('#idAgregarAdm').bootstrapValidator({
+        fields:{
+            descripcion:{
+                validators:{
+                    notEmpty:{
+                        message:'Campo Nombre es obligatorio.<br>'	
+                    },
+                    regexp:{
+                      regexp:/^[a-zA-ZÁ-ÿ\s]{1,20}$/,
+                      message:'Campo Nombre máx. 20 caracteres.<br>'
+                   }
+                }				
+            },
+
+            estado:{
+                validators:{
+                    notEmpty:{
+                        message:'Campo Estado es obligatorio.<br>'
+                    },
+                    Regexp:{
+                        Regexp:/^[a-zA-Z0-9\ ]{2,15}$/,
+                        message:'Seleccione un Estado.<br>'
+                    }
+                }
+
+            },
+        }
+    })
 tabladata = $('#tableAdmision').DataTable({
     responsive:true,
     "ajax": {
@@ -32,6 +60,7 @@ tabladata = $('#tableAdmision').DataTable({
       
   /*EVENTO ONCLICK AL BTN-EDIT*/
   $(document).on("click",".btn-editar",function(){
+    $("#idAgregarAdm").data("bootstrapValidator").resetForm(true);
     var nombre;
     nombre=$(this).parents("tr").find("td")[1].innerHTML;
     swal({
@@ -61,8 +90,10 @@ tabladata = $('#tableAdmision').DataTable({
 
 });
 
-/*AGREGAR/ACTUALIZAR CARRERAS*/
+/*AGREGAR/ACTUALIZAR ADMISION*/
 function Guardar() {
+    var nombre=$("#iddescripcion").val();
+    if(nombre !="" ){
     var request = {
             id:$("#idcod").val(),
             descripcion:$("#iddescripcion").val(),
@@ -92,6 +123,7 @@ function Guardar() {
 			console.log(request)
         },
     });
+}
 }
 
 
@@ -133,7 +165,7 @@ $(document).on("click",".btn-eliminar",function(){
 //evento onclick al BOTON CANCELAR1
 $(document).on("click","#idcancelar",function(){
     //reiniciar Validacion
-   // $("#idadmision").data("bootstrapValidator").resetForm(true);
+    $("#idAgregarAdm").data("bootstrapValidator").resetForm(true);
 
     //limpiar controles
     $("#idadmision").trigger("reset");		
