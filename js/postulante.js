@@ -66,7 +66,7 @@ tabladata = $('#tablePostulante').DataTable({
                 $("#idapellido").val(lastName);
                 $("#idcorreo").val(email);
                 $("#idfono").val(phone);
-                $("#idimagen").val(imageUrl);
+                $("input[type=file]")[0].files[0];
                 $('#idAgregarPos').modal('show'); //abrir modal  
                 }
         }); 
@@ -91,8 +91,6 @@ function Guardar() {
         contentType: false,
         processData: false,
         cache: false,
-        //data: JSON.stringify(request),
-        //contentType: "application/json; charset=utf-8",
         success: function (data) {
             if (data) {       
                 swal("Exito", "Se guardo la correctamente", "success")
@@ -155,8 +153,21 @@ $(document).on("click","#idcancelar",function(){
     $("#idcod").val("0");			
         
 })
+// CARGAR IMAGEN
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
 
+        reader.onload = function (e) {
+            $('#renderImage').attr('src', e.target.result);
+        }
 
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+$("#uploadImage").change(function(){
+    readURL(this);
+});
 
 
 
