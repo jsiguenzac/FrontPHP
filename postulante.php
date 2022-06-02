@@ -51,8 +51,7 @@
                           <th>NOMBRE</th>
                           <th>APELLIDO</th>
                           <th>EMAIL</th>
-                          <th>TELEFONO</th>
-                          <th>IMAGEN URL</th>               
+                          <th>TELEFONO</th>                                      
                           <th>ACCIONES</th>
                           </tr>
                         </thead>
@@ -79,7 +78,7 @@
                                     </div>
                                     <div class="modal-body">
                                       <!--inicio de cajas --------->
-                                            <form id="idpostulantes" action=" " method="post">
+                                            <form id="idpostulantes" action=" " enctype="multipart/form-data" method="post">
                                             <div class="form-row">
                                               <input type="text" class="form-control col-sm-2" id="idcod" name="id" value="0" hidden="">  
                                                   <div class="form-group col-md-6">

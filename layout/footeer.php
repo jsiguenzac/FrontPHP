@@ -1,5 +1,5 @@
 
-  <footer class="main-footer" style="flex-direction: fixed-footer; text-align: center;">
+  <footer class="main-footer" style="flex-direction: fixed-footer; text-align: center;margin-left: 0px;">
     <strong>Copyright &copy; 2022 <a href="https://www.cibertec.edu.pe" target="_blank">CIBERTEC</a>.</strong>
     Todos los derechos reservados.
   </footer>
