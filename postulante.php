@@ -79,7 +79,7 @@
                                     </div>
                                     <div class="modal-body">
                                       <!--inicio de cajas --------->
-                                            <form id="idpostulantes" action=" " method="post">
+                                            <form id="idpostulantes" action=" " method="post" enctype="multipart/form-data">
                                             <div class="form-row">
                                               <input type="text" class="form-control col-sm-2" id="idcod" name="id" value="0" hidden="">  
                                                   <div class="form-group col-md-6">
@@ -101,7 +101,18 @@
                                                   <div class="form-group col-md-9">
                                                     <label for="formFileSm" class="form-label">IMAGEN</label>
                                                     <input type="file" class="form-control form-control-sm" name="image" id="idimagen">
-                                                  </div>				   
+                                                  </div>
+                                                  <!--<div class="form-group col-md-9">
+                                                    <label for="formFileSm" class="form-label">IMAGEN</label>
+                                                    <div class="input-group">
+                                                        <label class="input-group-btn">
+                                                            <span class="btn btn-dark">
+                                                                Subir Foto <input type="file" id="uploadImage" style="display: none;" accept="image/png, image/jpeg">
+                                                            </span>
+                                                        </label>                                                        
+                                                    </div>
+                                                    <img class="card-img-top img-fluid" id="renderImage" src="" alt="Imagen a Subir">
+                                                  </div>-->			   
                                               </div>	
                                                   <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger" id="idcancelar" data-bs-dismiss="modal">CANCELAR</button>
