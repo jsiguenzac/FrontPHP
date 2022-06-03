@@ -56,6 +56,63 @@ $(document).ready(function() {
 				}				
 			},
 		}		
+	});
+    $('#idEditarPos').bootstrapValidator({		
+		fields:{	
+			nombre:{
+				validators:{
+ 			 		notEmpty:{
+ 			 			message:'Campo Nombre es obligatorio.<br>'	
+ 			 		},
+ 			 		regexp:{
+                        regexp:/^[a-zA-ZÁ-ÿ\s]{1,20}$/,
+                        message:'Campo Nombre máx. 20 caracteres.<br>'
+			 		}
+ 			 	}					
+			},
+			
+			apellido:{
+				validators:{
+					notEmpty:{
+						message:'Campo Apellido es obligatorio.<br>'
+					},
+ 			 		regexp:{
+			 			regexp:/^[a-zA-ZÁ-ÿ\s]{1,20}$/,
+			 			message:'Campo Apellido máx. 20 caracteres.<br>>'
+			 		}
+				}				
+			},
+						
+			correo:{
+				validators:{
+					notEmpty:{
+						message:'Campo Correo es obligatorio.<br>'
+					},
+ 			 		regexp:{
+			 			regexp:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+			 			message:'Campo Correo presenta "@" y ".com".<br>'
+			 		}
+				}					
+			},
+            fono:{
+				validators:{
+					notEmpty:{
+						message:'Campo Teléfono es obligatorio.<br>'
+					},
+ 			 		regexp:{
+			 			regexp:/^\d{1,9}$/,
+			 			message:'Campo Teléfono es maximo 9 digitos.<br>'
+			 		}
+				}					
+			},
+            image:{
+				validators:{
+					notEmpty:{
+						message:'Campo Imagen es obligatorio.<br>'
+					}		 	
+				}				
+			},
+		}		
 	});	
 tabladata = $('#tablePostulante').DataTable({
     responsive:true,
@@ -97,7 +154,7 @@ tabladata = $('#tablePostulante').DataTable({
     /*EVENTO ONCLICK AL BTN-EDIT*/ 
     $(document).on("click",".btn-editar",function(){
         //reiniciar Validacion
-        $("#idAgregarPos").data("bootstrapValidator").resetForm(true);
+        $("#idEditarPos").data("bootstrapValidator").resetForm(true);
         var nombre;
         nombre=$(this).parents("tr").find("td")[1].innerHTML;
         swal({
@@ -121,13 +178,13 @@ tabladata = $('#tablePostulante').DataTable({
                 imageUrl = tabladata.row( row ).data().imageUrl;
                 console.log('Valor id'+id);
                 //mostrar datos 
-                $("#idcod").val(id);
-                $("#idnombre").val(name);
-                $("#idapellido").val(lastName);
-                $("#idcorreo").val(email);
-                $("#idfono").val(phone);
+                $("#idcod2").val(id);
+                $("#idnombre2").val(name);
+                $("#idapellido2").val(lastName);
+                $("#idcorreo2").val(email);
+                $("#idfono2").val(phone);
                 $("input[type=file]")[0].files[0];
-                $('#idAgregarPos').modal('show'); //abrir modal  
+                $('#idEditarPos').modal('show'); //abrir modal  
                 }
         }); 
     })
@@ -267,6 +324,8 @@ $(document).on("click",".btn-eliminar",function(){
 $(document).on("click","#idcancelar",function(){
     //reiniciar Validacion
     $("#idAgregarPos").data("bootstrapValidator").resetForm(true);
+     //reiniciar Validacion
+     $("#idEditarPos").data("bootstrapValidator").resetForm(true);
 
     //limpiar controles
     $("#idpostulantes").trigger("reset");		
