@@ -155,7 +155,7 @@
                                                   </div>
                                                   <div class="form-group col-md-9">
                                                     <label for="formFileSm" class="form-label">IMAGEN</label>
-                                                    <input type="file" class="form-control form-control-sm" name="image" id="idimagen2">
+                                                    <input type="file" class="form-control form-control-sm" name="image" id="idimagen">
                                                   </div>
                                                   <!--<div class="form-group col-md-9">
                                                     <label for="formFileSm" class="form-label">IMAGEN</label>

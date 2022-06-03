@@ -240,23 +240,23 @@ function Guardar() {
 }
 
 function Editar() {
-    var nombre=$("#idnombre").val();
-    var ap=$("#idapellido").val();
-    var cor=$("#idcorreo").val();
-    var fon=$("#idfono").val();
+    var nombre=$("#idnombre2").val();
+    var ap=$("#idapellido2").val();
+    var cor=$("#idcorreo2").val();
+    var fon=$("#idfono2").val();
     var img=$("input[type=file]")[0].files[0];
     if(nombre != "" && ap !="" && cor !="" && fon !=""){
     var request = new FormData();
-    //request.append("id", $("#idcod").val());
-    request.append("name", $("#idnombre").val());
-    request.append("lastName", $("#idapellido").val());
-    request.append("email", $("#idcorreo").val());
-    request.append("phone", $("#idfono").val());
+    request.append("id", $("#idcod2").val());
+    request.append("name", $("#idnombre2").val());
+    request.append("lastName", $("#idapellido2").val());
+    request.append("email", $("#idcorreo2").val());
+    request.append("phone", $("#idfono2").val());
     request.append("image", $("input[type=file]")[0].files[0]);
     request.append('_method', 'PUT');
-    console.log("Valor del Id"+$("#idcod").val());
+    console.log("Valor del Id"+$("#idcod2").val());
     jQuery.ajax({
-        url: 'http://localhost:8081/api/v1/postulante/editar/'+$("#idcod").val(),
+        url: 'http://localhost:8081/api/v1/postulante/editar/'+$("#idcod2").val(),
         data: request,
         type: "POST",
         contentType: false,
@@ -268,10 +268,10 @@ function Editar() {
             if (data) {       
                 swal("Exito", "Se guardo la correctamente", "success")
                 //reiniciar Validacion
-                $("#idAgregarPos").data("bootstrapValidator").resetForm(true);	
-                $('#idAgregarPos').modal('hide');
+                $("#idEditarPos").data("bootstrapValidator").resetForm(true);	
+                $('#idEditarPos').modal('hide');
                 $("#idpostulantes").trigger("reset");		
-                $("#idcod").val("0");
+                $("#idcod2").val("0");
                 tabladata.ajax.reload();
             } else {
                 swal("Error", "No se pudo guardar los cambios", "warning")
