@@ -8,7 +8,7 @@ $(document).ready(function() {
                         message:'Campo Nombre es obligatorio.<br>'	
                     },
                     regexp:{
-                      regexp:/^[a-zA-ZÁ-ÿ\s]{1,20}$/,
+                      regexp:/^[a-zA-Z0-9\-\ ]{1,20}$/,
                       message:'Campo Nombre máx. 20 caracteres.<br>'
                    }
                 }				

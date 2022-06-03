@@ -103,7 +103,7 @@
                 </div>
             </div>
                     <!---->
-        <section />
+        </section>
     </div>
     <!-- /.content-wrapper -->
     <!--FIN DE CONTENIDO DE CADA HTML-->
