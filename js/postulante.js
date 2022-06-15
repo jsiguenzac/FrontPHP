@@ -154,7 +154,7 @@ tabladata = $('#tablePostulante').DataTable({
     /*EVENTO ONCLICK AL BTN-EDIT*/ 
     $(document).on("click",".btn-editar",function(){
         //reiniciar Validacion
-        $("#idEditarPos").data("bootstrapValidator").resetForm(true);
+        $("#idAgregarPos").data("bootstrapValidator").resetForm(true);
         var nombre;
         nombre=$(this).parents("tr").find("td")[1].innerHTML;
         swal({
@@ -176,20 +176,25 @@ tabladata = $('#tablePostulante').DataTable({
                 email = tabladata.row( row ).data().email;
                 phone = tabladata.row( row ).data().phone;
                 imageUrl = tabladata.row( row ).data().imageUrl;
-                console.log('Valor id'+id);
+                console.log('Valor id '+id);
                 //mostrar datos 
-                $("#idcod2").val(id);
-                $("#idnombre2").val(name);
-                $("#idapellido2").val(lastName);
-                $("#idcorreo2").val(email);
-                $("#idfono2").val(phone);
+                $("#idcod").val(id);
+                $("#idnombre").val(name);
+                $("#idapellido").val(lastName);
+                $("#idcorreo").val(email);
+                $("#idfono").val(phone);
                 $("input[type=file]")[0].files[0];
-                $('#idEditarPos').modal('show'); //abrir modal  
+                $('#idAgregarPos').modal('show'); //abrir modal  
                 }
         }); 
     })
 
 });
+
+function Grabar(){
+    var id = $("#idcod").val();    
+    return id<=0 ? Guardar() : Editar();
+}
 
 // AGREGAR/ACTUALIZAR POSTULANTES
 function Guardar() {
@@ -205,7 +210,7 @@ function Guardar() {
     request.append("lastName", $("#idapellido").val());
     request.append("email", $("#idcorreo").val());
     request.append("phone", $("#idfono").val());
-    request.append("image", $("input[type=file]")[0].files[0]);
+    request.append("image", $("input[name=image]")[0].files[0]);
     console.log("Valor del Id"+$("#idcod").val());
     jQuery.ajax({
         url: 'http://localhost:8081/api/v1/postulante/registrar',
@@ -231,6 +236,9 @@ function Guardar() {
         },
         error: function (error) {
             console.log(error)
+             //reiniciar Validacion
+        $("#idEditarPos").data("bootstrapValidator").resetForm(true);
+       
         },
         beforeSend: function () {
             console.log(request)
@@ -240,38 +248,42 @@ function Guardar() {
 }
 
 function Editar() {
-    var nombre=$("#idnombre2").val();
-    var ap=$("#idapellido2").val();
-    var cor=$("#idcorreo2").val();
-    var fon=$("#idfono2").val();
+    var id=$("#idcod").val();
+    var nombre=$("#idnombre").val();
+    var ap=$("#idapellido").val();
+    var cor=$("#idcorreo").val();
+    var fon=$("#idfono").val();
     var img=$("input[type=file]")[0].files[0];
     if(nombre != "" && ap !="" && cor !="" && fon !=""){
     var request = new FormData();
-    request.append("id", $("#idcod2").val());
-    request.append("name", $("#idnombre2").val());
-    request.append("lastName", $("#idapellido2").val());
-    request.append("email", $("#idcorreo2").val());
-    request.append("phone", $("#idfono2").val());
-    request.append("image", $("input[type=file]")[0].files[0]);
+    request.append("id", id);
+    request.append("name", $("#idnombre").val());
+    request.append("lastName", $("#idapellido").val());
+    request.append("email", $("#idcorreo").val());
+    request.append("phone", $("#idfono").val());
+    request.append("image", $("input[name=image]")[0].files[0]);
     request.append('_method', 'PUT');
-    console.log("Valor del Id"+$("#idcod2").val());
-    jQuery.ajax({
-        url: 'http://localhost:8081/api/v1/postulante/editar/'+$("#idcod2").val(),
+    console.log("Valor del Id "+id);
+    $.ajax({
+        url: 'http://localhost:8081/api/v1/postulante/editar/'+id,
         data: request,
-        type: "POST",
+        type: "PUT",
         contentType: false,
         processData: false,
         cache: false,
         //data: JSON.stringify(request),
         //contentType: "application/json; charset=utf-8",
+        beforeSend: function () {
+           // console.log(data)
+        },
         success: function (data) {
             if (data) {       
                 swal("Exito", "Se guardo la correctamente", "success")
                 //reiniciar Validacion
-                $("#idEditarPos").data("bootstrapValidator").resetForm(true);	
-                $('#idEditarPos').modal('hide');
+                $("#idAgregarPos").data("bootstrapValidator").resetForm(true);	
+                $('#idAgregarPos').modal('hide');
                 $("#idpostulantes").trigger("reset");		
-                $("#idcod2").val("0");
+                $("#idcod").val("0");
                 tabladata.ajax.reload();
             } else {
                 swal("Error", "No se pudo guardar los cambios", "warning")
@@ -279,10 +291,10 @@ function Editar() {
         },
         error: function (error) {
             console.log(error);
-        },
-        beforeSend: function () {
-            console.log(request)
-        },
+             //reiniciar Validacion
+        $("#idAgregarPos").data("bootstrapValidator").resetForm(true);
+       
+        }
     });
 }
 }
@@ -346,6 +358,9 @@ function readURL(input) {
 }
 $("#uploadImage").change(function(){
     readURL(this);
+     //reiniciar Validacion
+     $("#idEditarPos").data("bootstrapValidator").resetForm(true);
+       
 });
 
 
