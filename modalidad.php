@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <title>MODALIDAD | Cibertec</title>
+     <title>Modalidad | Cibertec</title>
      <?php require('./layout/link.php')?>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

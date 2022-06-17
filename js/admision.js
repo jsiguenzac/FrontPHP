@@ -89,8 +89,15 @@ tabladata = $('#tableAdmision').DataTable({
 })
 
 });
+//
 
-/*AGREGAR/ACTUALIZAR ADMISION*/
+
+function Grabar(){
+    var id = $("#idcod").val();    
+    return id<=0 ? Guardar() : Editar();
+}
+
+// AGREGAR/ACTUALIZAR ADMISION
 function Guardar() {
     var nombre=$("#iddescripcion").val();
     if(nombre !="" ){
@@ -107,7 +114,7 @@ function Guardar() {
         success: function (data) {
 
             if (data) { 
-                swal("Exito", "Se guardo correctamente", "success")
+                swal("Éxito", "Se guardó correctamente", "success")
                 //reiniciar Validacion
                 $("#idAgregarAdm").data("bootstrapValidator").resetForm(true);
                 $('#idAgregarAdm').modal('hide');
@@ -115,7 +122,7 @@ function Guardar() {
                 $("#idcod").val("0");	
                 tabladata.ajax.reload();
             } else {
-                swal("Error", "No se pudo guardar los cambios", "warning")
+                swal("Error", "No se pudo guardar la admisión", "warning")
             }
         },
         error: function (error) {
@@ -128,6 +135,44 @@ function Guardar() {
 }
 }
 
+function Editar() {
+    var id=$("#idcod").val();
+    var nombre=$("#iddescripcion").val();
+    if(nombre !="" ){
+    var request = {
+            id:$("#idcod").val(),
+            descripcion:$("#iddescripcion").val(),
+            estado:$("#idestado").val()
+    }
+    $.ajax({
+        url: 'http://localhost:8081/api/v1/admision/actualizar/'+id,      
+        type: "PUT",
+        data: JSON.stringify(request),
+        setTimeout:0,
+        contentType: "application/json; charset=utf-8",        
+        success: function (data) {
+           
+            if (data) { 
+                tabladata.ajax.reload();
+                swal("Éxito", "Se actualizó correctamente", "success")
+                //reiniciar Validacion
+                $("#idAgregarAdm").data("bootstrapValidator").resetForm(true);
+                $('#idAgregarAdm').modal('hide');
+                $("#idadmision").trigger("reset");		
+                $("#idcod").val("0");	                
+            } else {
+                swal("Error", "No se pudo actualizar", "warning")
+            }
+        },
+        error: function (error) {
+            console.log(error);                   
+        },
+        beforeSend: function () {
+            console.log(request)
+         }
+    });
+}
+}
 
 /*EVENTO ONCLICK AL BTN-eliminar*/
 $(document).on("click",".btn-eliminar",function(){

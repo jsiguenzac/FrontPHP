@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <title>ADMISION | Cibertec</title>
+     <title>Admision | Cibertec</title>
      <?php require('./layout/link.php')?>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -78,7 +78,7 @@
                                       <!--inicio de cajas --------->
                                             <form id="idadmision" action=" " method="post">
                                             <div class="form-row">
-                                              <input type="text" class="form-control col-sm-2" id="idcod" name="id" value="0" hidden="">  
+                                              <input type="hidden" class="form-control col-sm-2" id="idcod" name="id" value="0" >  
                                                   <div class="form-group col-md-6">
                                                     <label for="inputDescripcion">NOMBRE</label>
                                                     <input type="text" class="form-control" id="iddescripcion" name="descripcion" placeholder="Ingrese nombre de admision">
@@ -93,7 +93,7 @@
                                               </div>	
                                                   <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger" id="idcancelar" data-bs-dismiss="modal">CANCELAR</button>
-                                                    <button type="submit" class="btn btn-success"  id="idguardar" onclick="Guardar()">GRABAR</button>
+                                                    <button type="submit" class="btn btn-success"  id="idguardar" onclick="Grabar()">GRABAR</button>
                                                   </div>
                                             </form>	
                                     </div>	      
