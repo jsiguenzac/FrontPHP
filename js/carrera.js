@@ -60,11 +60,11 @@ tabladata = $('#tableCarrera').DataTable({
         {
             "data": "id", "render": function (data, type, row, meta) {
                 return $("<button>").addClass("btn btn-primary btn-editar btn-sm").append(
-                    $("<i>").addClass("fas fa-pen").text("Editar")
+                    $("<i>").addClass("fas fa-pen").text(" Editar")
                 ).attr({"data-informacion": JSON.stringify(row) })[0].outerHTML
                 +" | "+
                 $("<button>").addClass("btn btn-danger btn-eliminar btn-sm ms-2").append(
-                    $("<i>").addClass("fas fa-trash").text("Eliminar")
+                    $("<i>").addClass("fas fa-trash").text(" Eliminar")
                 ).attr({ "data-informacion": JSON.stringify(row) })[0].outerHTML;
             }
         }
@@ -108,8 +108,14 @@ tabladata = $('#tableCarrera').DataTable({
 
 });
 
-// AGREGAR/ACTUALIZAR CARRERAS
-function Guardar() {	
+//
+function Grabar(){
+    var id = $("#idcod").val();    
+    return id<=0 ? Guardar() : Editar();
+}
+
+// AGREGAR/ACTUALIZAR CARRERA
+function Guardar() {
     var nombre=$("#iddescripcion").val();
     var est=$("#idestado").val();
     var are=$("#idarea").val();
@@ -128,7 +134,7 @@ function Guardar() {
         success: function (data) {
 
             if (data) {
-                swal("Exito", "Se guardo correctamente", "success")
+                swal("Éxito", "Se guardó correctamente", "success")
                 //reiniciar Validacion
                 $("#idAgregarCar").data("bootstrapValidator").resetForm(true);
                 $('#idAgregarCar').modal('hide');
@@ -149,6 +155,48 @@ function Guardar() {
 }
 }
 
+function Editar() {
+    var id=$("#idcod").val();
+    var nombre = $("#iddescripcion").val();
+    var est = $("#idestado").val();
+    var are = $("#idarea").val();
+    if(nombre != "" && est !="" && are !=""){
+    var request = {
+            id:$("#idcod").val(),
+            descripcion:$("#iddescripcion").val(),
+            estado:$("#idestado").val(),
+            areaid:$("#idarea").val()
+    }
+    $.ajax({
+        url: 'http://localhost:8081/api/v1/carrera/actualizar/'+request.id,    
+        type: "PUT",
+        data: JSON.stringify(request),
+        setTimeout:0,
+        contentType: "application/json; charset=utf-8",        
+        success: function (data) {
+           
+            if (data) { 
+                swal("Éxito", "Se actualizó correctamente", "success")
+               //reiniciar Validacion
+               $("#idAgregarCar").data("bootstrapValidator").resetForm(true);
+               $('#idAgregarCar').modal('hide');
+               $("#idcarreras").trigger("reset");		
+               $("#idcod").val("0");		
+               tabladata.ajax.reload();                
+            } else {
+                swal("Error", "No se pudo actualizar", "warning")
+            }
+        },
+        error: function (error) {
+            console.log(error);                   
+        },
+        beforeSend: function () {
+            console.log(request)
+         }
+    });
+}
+}
+
 
 /*EVENTO ONCLICK AL BTN-eliminar*/
 $(document).on("click",".btn-eliminar",function(){
@@ -164,12 +212,17 @@ $(document).on("click",".btn-eliminar",function(){
         buttons: true,
     })
     .then((willDelete) => {        
-        if (willDelete) {           
+        if (willDelete) {   
+            var row = $(this).closest('td');            
+            row1 = tabladata.row( row ).length;        
                 $.ajax({
                     url:"http://localhost:8081/api/v1/carrera/eliminar/"+cod,
                     type:"DELETE",
                     success:function(){
                         swal("Ok","Se eliminó correctamente!","success").then(function(){
+                            if(row1<=1){
+                                document.location.href = "carrera.php";
+                            }else
                             tabladata.ajax.reload();
                         });
                     }

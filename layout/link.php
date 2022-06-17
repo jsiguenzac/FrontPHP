@@ -10,3 +10,4 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="css/adminlte.min.css">
   <link rel="stylesheet" href="css/validaCSS.css">
+  <link rel="shortcut icon" href="img/icoweb.ico">

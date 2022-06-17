@@ -80,15 +80,14 @@
                                       <!--inicio de cajas --------->
                                             <form id="idcarreras" action=" " method="post" autocomplete="off">
                                             <div class="form-row">
-                                              <input type="text" class="form-control col-sm-2" id="idcod" name="id" value="0" hidden="">  
+                                              <input type="hidden" class="form-control col-sm-2" id="idcod" name="id" value="0" >  
                                                   <div class="form-group col-md-6">
                                                     <label for="inputDescripcion">NOMBRE</label>
                                                     <input type="text" class="form-control" id="iddescripcion" name="descripcion" placeholder="Ingrese nombre de carrera">
                                                   </div>
                                                   <div class="form-group col-md-6">
                                                       <label for="inputEstado">ESTADO</label>
-                                                      <select id="idestado" name="estado" class="form-control">
-                                                     
+                                                      <select id="idestado" name="estado" class="form-control">                                                     
                                                         <option selected>ACTIVO</option>
                                                         <option>INACTIVO</option>									        
                                                       </select>
