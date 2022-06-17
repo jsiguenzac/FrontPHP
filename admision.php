@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <title>Admision | Cibertec</title>
+     <title>Admisión | Cibertec</title>
      <?php require('./layout/link.php')?>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -17,14 +17,14 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>ADMISION</h1>
+            <h1>ADMISIÓN</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">              
               <!-- AGREGAR NUEVA CARRERA -->
                       <!-- Button trigger modal -->
                       <button type="button" class="btn btn-sm  ml-auto btn-success" data-bs-toggle="modal" data-bs-target="#idAgregarAdm">
-                        AGREGAR ADMISION <i class="fas fa-plus"></i> 
+                        AGREGAR ADMISIÓN <i class="fas fa-plus"></i> 
                       </button>      
             </ol>
           </div>
@@ -39,7 +39,7 @@
                   <!-- /.card -->
               <div class="card">
                   <div class="card-header">
-                    <h2 class="card-title">Lista de Admision</h2>
+                    <h2 class="card-title">Lista de Admisión</h2>
                   </div>
                 <div class="card-body">
                   <div class="table-responsive">                         

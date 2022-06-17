@@ -60,9 +60,8 @@ tabladata = $('#tableModalidad').DataTable({
   /*EVENTO ONCLICK AL BTN-EDIT*/
   $(document).on("click",".btn-editar",function(){
     $("#idAgregarModa").data("bootstrapValidator").resetForm(true);
-    var nombre, estado;
+    var nombre;
     nombre=$(this).parents("tr").find("td")[1].innerHTML;
-    estado=$(this).parents("tr").find("td")[2].innerHTML;
     swal({
         title: "¿Seguro que desea editar "+nombre+"?",
        text: "Se actualizará de la lista",
@@ -77,7 +76,7 @@ tabladata = $('#tableModalidad').DataTable({
 
         id = tabladata.row( row ).data().id;
         descripcion = tabladata.row( row ).data().descripcion;
-        estado = estado;
+        estado = tabladata.row( row ).data().estado;
             //mostrar datos 
             $("#idcod").val(id);
             $("#iddescripcion").val(descripcion);
@@ -90,7 +89,13 @@ tabladata = $('#tableModalidad').DataTable({
 
 });
 
-/*AGREGAR/ACTUALIZAR MODALIDAD*/
+//
+function Grabar(){
+    var id = $("#idcod").val();    
+    return id<=0 ? Guardar() : Editar();
+}
+
+// AGREGAR/ACTUALIZAR ADMISION
 function Guardar() {
     var nombre=$("#iddescripcion").val();
     if(nombre != "" ){
@@ -107,7 +112,7 @@ function Guardar() {
         success: function (data) {
 
             if (data) { 
-                swal("Exito", "Se guardo correctamente", "success")
+                swal("Éxito", "Se guardó correctamente", "success")
                 //reiniciar Validacion
                 $("#idAgregarModa").data("bootstrapValidator").resetForm(true);
                 $('#idAgregarModa').modal('hide');
@@ -115,7 +120,7 @@ function Guardar() {
                 $("#idcod").val("0");		
                 tabladata.ajax.reload();
             } else {
-                swal("Error", "No se pudo guardar los cambios", "warning")
+                swal("Error", "No se pudo guardar la modalidad", "warning")
             }
         },
         error: function (error) {
@@ -128,6 +133,44 @@ function Guardar() {
 }
 }
 
+function Editar() {
+    var id=$("#idcod").val();
+    var nombre=$("#iddescripcion").val();
+    if(nombre !="" ){
+    var request = {
+            id:$("#idcod").val(),
+            descripcion:$("#iddescripcion").val(),
+            estado:$("#idestado").val()
+    }
+    $.ajax({
+        url: 'http://localhost:8081/api/v1/modalidad/actualizar/'+id,      
+        type: "PUT",
+        data: JSON.stringify(request),
+        setTimeout:0,
+        contentType: "application/json; charset=utf-8",        
+        success: function (data) {
+           
+            if (data) { 
+                swal("Éxito", "Se actualizó correctamente", "success")
+                //reiniciar Validacion
+                $("#idAgregarModa").data("bootstrapValidator").resetForm(true);
+                $('#idAgregarModa').modal('hide');
+                $("#idmodalidad").trigger("reset");		
+                $("#idcod").val("0");		
+                tabladata.ajax.reload();                
+            } else {
+                swal("Error", "No se pudo actualizar", "warning")
+            }
+        },
+        error: function (error) {
+            console.log(error);                   
+        },
+        beforeSend: function () {
+            console.log(request)
+         }
+    });
+}
+}
 
 
 /*EVENTO ONCLICK AL BTN-eliminar*/
@@ -154,7 +197,7 @@ $(document).on("click",".btn-eliminar",function(){
                 success:function(){
                     swal("Ok","Se eliminó correctamente!","success").then(function(){
                         if(row1<=1){
-                            document.location.href = "admision.php";
+                            document.location.href = "modalidad.php";
                         }else
                         tabladata.ajax.reload();
                     });
