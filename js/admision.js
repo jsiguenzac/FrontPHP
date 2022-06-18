@@ -120,7 +120,8 @@ function Guardar() {
                 $('#idAgregarAdm').modal('hide');
                 $("#idadmision").trigger("reset");		
                 $("#idcod").val("0");	
-                tabladata.ajax.reload();
+               // tabladata.ajax.reload();
+               document.location.href = "admision.php";
             } else {
                 swal("Error", "No se pudo guardar la admisión", "warning")
             }
@@ -153,13 +154,14 @@ function Editar() {
         success: function (data) {
            
             if (data) { 
-                tabladata.ajax.reload();
+                //tabladata.ajax.reload();
                 swal("Éxito", "Se actualizó correctamente", "success")
                 //reiniciar Validacion
                 $("#idAgregarAdm").data("bootstrapValidator").resetForm(true);
                 $('#idAgregarAdm').modal('hide');
                 $("#idadmision").trigger("reset");		
-                $("#idcod").val("0");	                
+                $("#idcod").val("0");
+                document.location.href = "admision.php";	                
             } else {
                 swal("Error", "No se pudo actualizar", "warning")
             }

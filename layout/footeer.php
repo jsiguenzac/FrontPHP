@@ -4,6 +4,10 @@
     Todos los derechos reservados.
   </footer>
   
+  <script src="https://fobi.io/embed.js"></script>
+<div id="embed-fobi"  data-fobi-id="a17RNyI" data-bot-title= "FaceExam ChatBot" data-hd-bg= "#558CAF" data-hd-ti-clr= "#FFF" data-ct-pm= "#2980B9" data-ct-sc= "#FFF" data-ct-bot-img= "http://res.cloudinary.com/fobi/image/upload/v1655591842/a5xmqmwntry5ufr3shm7.png" data-btn-offset= "Right: 30px" data-cb-offset= "Right: 30px" data-btn-img= "http://res.cloudinary.com/fobi/image/upload/v1655591765/fy4rwmsg4riuh2cvtkia.png" data-btn-bg= "#2980B9" data-cb-height= "400px" data-cb-width= "330px" ></div>
+
+
 </div>
 <!-- ./wrapper -->
 <!-- jQuery -->

@@ -140,7 +140,7 @@ function Guardar() {
                 $('#idAgregarCar').modal('hide');
                 $("#idcarreras").trigger("reset");		
                 $("#idcod").val("0");		
-                tabladata.ajax.reload();
+                document.location.href = "carrera.php";
             } else {
                 swal("Error", "No se pudo guardar los cambios", "warning")
             }

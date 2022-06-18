@@ -118,7 +118,8 @@ function Guardar() {
                 $('#idAgregarModa').modal('hide');
                 $("#idmodalidad").trigger("reset");		
                 $("#idcod").val("0");		
-                tabladata.ajax.reload();
+                //tabladata.ajax.reload();
+                document.location.href = "modalidad.php";
             } else {
                 swal("Error", "No se pudo guardar la modalidad", "warning")
             }
@@ -157,7 +158,7 @@ function Editar() {
                 $('#idAgregarModa').modal('hide');
                 $("#idmodalidad").trigger("reset");		
                 $("#idcod").val("0");		
-                tabladata.ajax.reload();                
+                document.location.href = "modalidad.php";              
             } else {
                 swal("Error", "No se pudo actualizar", "warning")
             }
