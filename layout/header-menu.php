@@ -91,7 +91,7 @@
             <a href="#" class="nav-link">
             <img src="./img/ficha.ico" alt="Exam Face Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
               <p>
-                FICHA POSTULACION
+                FICHA POSTULACIÓN
                 <hr color="White">
               </p>
             </a>
@@ -100,7 +100,7 @@
             <a href="verificacion.php" class="nav-link">
             <img src="./img/verificacion.ico" alt="Exam Face Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
               <p>
-                VERIFICACION
+                VERIFICACIÓN
                 <hr color="White">
               </p>
             </a>
@@ -118,7 +118,7 @@
               <li class="nav-item">
                 <a href="#" class="nav-link active">
                   <span class="lnr lnr-exit"></span>
-                  <p>CAMBIAR CONTRASEÑA</p>
+                  <i class="fa fa-key"></i> <p>Cambiar Contraseña</p> 
                 </a>
               </li>
             </ul>
@@ -126,7 +126,7 @@
               <li class="nav-item">
                 <a href="login.html" class="nav-link active">
                   <span class="lnr lnr-exit"></span>
-                  <p>CERRAR SESIÓN</p>
+                  <i class="fa fa-arrow-right"></i> <p>Cerrar Sesión </p>
                 </a>
               </li>
             </ul>
