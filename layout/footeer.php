@@ -1,8 +1,14 @@
 
+   <!--ParaRetornar arriba
+    <a id="back-to-top" href="#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">
+      <i class="fas fa-chevron-up"></i>
+    </a>-->
+  
   <footer class="main-footer" style="flex-direction: fixed-footer; text-align: center;margin-left: 0px;">
     <strong>Copyright &copy; 2022 <a href="https://www.cibertec.edu.pe" target="_blank">CIBERTEC</a>.</strong>
     Todos los derechos reservados.
   </footer>
+
   <!--CHATBOT-->
   <script src="https://fobi.io/embed.js"></script>
 <div id="embed-fobi"  data-fobi-id="0IOOgVo" data-bot-title= "FaceExam - ChatBot" data-hd-bg= "#5D8383" data-hd-ti-clr= "#FFF" data-ct-pm= "#637D96" data-ct-sc= "#FFF" data-ct-bot-img= "http://res.cloudinary.com/fobi/image/upload/v1655865875/kj5alqg7r8axma1wdpdx.png" data-btn-offset= "Right: 30px" data-cb-offset= "Right: 30px" data-btn-img= "http://res.cloudinary.com/fobi/image/upload/v1655865908/mhji7xuxui1yulsfvlbv.png" data-btn-bg= "#000000" data-cb-height= "400px" data-cb-width= "330px" ></div>
