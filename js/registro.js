@@ -24,7 +24,7 @@ function Registrar() {
                 toast: true,
                 position: 'center',
              }).then(function(){           
-                document.location.href = "login.html";          
+                document.location.href = "index.php";          
         });                     
         },
         error: function (error) {

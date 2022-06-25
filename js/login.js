@@ -27,7 +27,7 @@ function Login() {
                  toast: true,
                  position: 'center',
               }).then(function(){           
-                document.location.href = "index.php";       
+                document.location.href = "inicio.php";       
          });                    
         },
         error: function (error) {

@@ -1,154 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Principal | Cibertec</title>
-  <?php require('./layout/link.php')?>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/logiin.css"  type="text/css">
+    <link rel="icon" href="img/ico.png" type="image/png">
+    <!-- CDN de SweetAlert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    -->
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
-
-  <?php require('./layout/header-menu.php')?>
-
-  <!--AQUI INICIO CONTENIDO DE CADA HTML-->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Inicio</h1>
-          </div>         
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-      <h3 class="mt-4 mb-4" style="text-align: center;">Usuario Logueado</h3>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card card-widget widget-user-2">                          
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <!-- Widget: user widget style 1 -->
-            <div class="card card-widget widget-user">
-              <!-- Add the bg color to the header using any of the bg-* classes -->
-              <div class="widget-user-header" style="background-color: #487C84; color: white;">
-                <h1 id="nombre"></h1>
-                <!--sepuede añadir img de usu logeado-->
-              </div>             
-              <div class="card-footer">
-                <div class="row">
-                <!--<div class="col-sm-4"></div>-->
-                  <!-- /.col -->
-                  <div class="col-sm-8 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">CORREO</h5>
-                      <p id="correo">email</p>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4">
-                    <div class="description-block">
-                      <h5 class="description-header">ROL</h5>
-                      <span class="description-text" id="rol"></span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
+<body>
+    <div class="logo">
+        <img class="img" src="img/logoEchado.png" alt="FaceExam">
+    </div>
+    <section>
+        <div class="box">
+            <div class="square" style="--i:0;"></div>
+            <div class="square" style="--i:1;"></div>
+            <div class="square" style="--i:2;"></div>
+            <div class="square" style="--i:3;"></div>
+            <div class="square" style="--i:4;"></div>
+            <div class="container">
+                <div class="form">
+                    <h2>Iniciar Sesión</h2>
+                    <form action="" method="POST">
+                        <div class="inputBox">
+                            <input type="text" name="username" id="Usuario" placeholder="Usuario" required>
+                        </div>
+                        <div class="inputBox">
+                            <input type="password" id="Clave" placeholder="Contraseña" required>
+                        </div>
+                                 
+                                         <div class="row mx-auto mb-3">
+                                            <span id="mensaje"></span>
+                                        </div>
+                                            <div class="mt-4 mb-0">
+                                                <div class="inputBox">
+                                                    <button class="boton" type="button" onclick="Login()">Iniciar Sesión</button>
+                                                </div>
+                                            </div>
+                        <p class="forget"><a href="registrarse.php">Registrarse</a></p>
+                    </form>
                 </div>
-                <!-- /.row -->
-              </div>
+                
             </div>
-            <!-- /.widget-user -->
-          </div>
-
-          <div class="col-md-4">            
-          </div>
-        </div>  
-  <hr>
-        <!-- Small Box (Stat card) -->
-        <div class="row">
-          <div class="col-lg-3 col-6" onclick="abrirPos()">
-            <!-- small card -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3 id="cant_postu"></h3>
-                <p>Postulantes Nuevos</p>
-              </div>
-              <div class="icon">
-              <i class="fa fa-people-line"></i>
-              </div>
-              <a href="postulante.php" class="small-box-footer">
-                Ver más <i class="fas fa-arrow-circle-right"></i>
-              </a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6" onclick="abrirCar()">
-            <!-- small card -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3 id="cant_car"></h3>
-                <p>Carreras Registradas</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-graduation-cap"></i>
-              </div>
-              <a href="carrera.php" class="small-box-footer">
-              Ver más <i class="fas fa-arrow-circle-right"></i>
-              </a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6" onclick="abrirAdmi()">
-            <!-- small card -->
-            <div class="small-box" style="color: white; background-color: orange;">
-              <div class="inner">
-                <h3 id="cant_admi"></h3>
-                <p>Nuevas Admisiones</p>
-              </div>
-              <div class="icon">
-              <i class="fa fa-file-circle-check"></i>
-              </div>
-              <a href="admision.php" class="small-box-footer">
-              Ver más <i class="fas fa-arrow-circle-right"></i>
-              </a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6" onclick="abrirModa()">
-            <!-- small card -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3 id="cant_moda"></h3>
-                <p>Modalidades Registradas</p>
-              </div>
-              <div class="icon">
-              <i class="fa fa-book-bookmark"></i>
-              </div>
-              <a href="#" class="small-box-footer">
-              Ver más <i class="fas fa-arrow-circle-right"></i>
-              </a>
-            </div>
-          </div>
-          <!-- ./col -->
         </div>
-        <!-- /.row -->
-        
-      </div><!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
-   
-  </div>
-    <!--FIN DE CONTENIDO DE CADA HTML-->
 
-    <?php require('./layout/footeer.php')?>
-    <script src="./js/inicio.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> 
+    <script src="./js/login.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
