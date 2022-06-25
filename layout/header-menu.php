@@ -88,7 +88,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="fichaPostulacion.php" class="nav-link">
             <img src="./img/ficha.ico" alt="Exam Face Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
               <p>
                 FICHA POSTULACIÓN
