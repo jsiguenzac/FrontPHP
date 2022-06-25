@@ -2,7 +2,6 @@ function Login() {
     var request = {
         username:$("#Usuario").val(),
         password:$("#Clave").val()
-        //falta implementar el confirmar contraseña
     }
     console.log(request)
     jQuery.ajax({
@@ -16,12 +15,9 @@ function Login() {
             console.log("datos recibidos: "+data)
             if (data) {
                 console.log(data.username)
-                document.location.href = "index.php";
-                //termina pantalla de carga
-            // $.LoadingOverlay("hide");
-                //TODO: hacer un reload o limpiar los inputs
-            //$('#mensaje').addClass('alert alert-dark').html('📧Revisa tu correo para confirmar tu cuenta...')
-
+                localStorage.setItem("username", data.username);                
+                
+                document.location.href = "index.php";                
             } else {
                 console.log("No se pudo guardar los cambios");
             }
@@ -32,7 +28,6 @@ function Login() {
             $('#Clave').val(''),
             $('#mensaje').addClass('alert alert-dark').html('Credenciales Incorrectas!!!')
             
-            //$.LoadingOverlay("hide");
         }
     });
 

@@ -1,4 +1,4 @@
- 
+
 <div class="wrapper">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -36,7 +36,7 @@
           <img src="./img/usuario.ico" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">USER NAME</a>
+          <a href="#" class="d-block" id="username">user</a>
         </div>
       </div>
       <!-- Sidebar Menu -->

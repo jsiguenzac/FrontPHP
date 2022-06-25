@@ -76,7 +76,7 @@
                                     </div>
                                     <div class="modal-body">
                                       <!--inicio de cajas --------->
-                                            <form id="idmodalidad" action=" " method="post">
+                                            <form id="idmodalidad" action=" " method="post" autocomplete="off">
                                             <div class="form-row">
                                               <input type="hidden" class="form-control col-sm-2" id="idcod" name="id" value="0" >  
                                                   <div class="form-group col-md-6">

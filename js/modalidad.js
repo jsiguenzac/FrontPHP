@@ -56,7 +56,7 @@ tabladata = $('#tableModalidad').DataTable({
         "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
     }
     });
-      
+    mostrarDatos();
   /*EVENTO ONCLICK AL BTN-EDIT*/
   $(document).on("click",".btn-editar",function(){
     $("#idAgregarModa").data("bootstrapValidator").resetForm(true);

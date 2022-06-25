@@ -74,6 +74,7 @@ tabladata = $('#tableCarrera').DataTable({
     }
     });
     loadCombo();
+    mostrarDatos();
         /*EVENTO ONCLICK AL BTN-EDIT*/
     $(document).on("click",".btn-editar",function(){
         $("#idAgregarCar").data("bootstrapValidator").resetForm(true);
@@ -108,13 +109,13 @@ tabladata = $('#tableCarrera').DataTable({
 
 });
 
-//
+
+//AGREGAR/ACTUALIZAR CARRERA
 function Grabar(){
     var id = $("#idcod").val();    
     return id<=0 ? Guardar() : Editar();
 }
 
-// AGREGAR/ACTUALIZAR CARRERA
 function Guardar() {
     var nombre=$("#iddescripcion").val();
     var est=$("#idestado").val();
