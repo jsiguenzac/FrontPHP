@@ -16,19 +16,56 @@ function Login() {
             if (data) {
                 console.log(data.username)
                 localStorage.setItem("username", data.username);                
-                
-                document.location.href = "index.php";                
+
             } else {
                 console.log("No se pudo guardar los cambios");
             }
+            Swal.fire({
+                title: 'Logueo Exitoso',                
+                 icon: 'success',
+                 width: '25%',
+                 toast: true,
+                 position: 'center',
+              }).then(function(){           
+                document.location.href = "index.php";       
+         });                    
         },
         error: function (error) {
             console.log("mando error"+error);
             $('#Usuario').val(''),
-            $('#Clave').val(''),
-            $('#mensaje').addClass('alert alert-dark').html('Credenciales Incorrectas!!!')
+            $('#Clave').val('')
+           // $('#mensaje').addClass('alert alert-dark').html('Credenciales Incorrectas!!!')
+
             
         }
     });
+    if (request == true) {
+        // swal('Bienvenido ' + data.username, '', 'success');
+        Swal.fire({
+            title: 'Bienvenido ' + data.username,
+            icon: 'success',
+            width: '25%',
+            toast: true,
+            position: 'top-end',
+        })
+    }
+    else {
+        // swal('Credenciales Incorrectas!!!','', 'error');
+        Swal.fire({
+            title: 'Credenciales Incorrectas',
+            icon: 'error',
+            width: '25%',
+           // background: '#000',
+            timer: 2000,
+            timerProgressBar: true,
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            allowEnterKey: false,
+            allowClickOutside: false,
+        })
+    }
 
     }
