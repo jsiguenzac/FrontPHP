@@ -8,8 +8,8 @@ $(document).ready(function() {
  			 			message:'Campo Nombre es obligatorio.<br>'	
  			 		},
  			 		regexp:{
-                        regexp:/^[a-zA-ZÁ-ÿ\s]{1,20}$/,
-                        message:'Campo Nombre máx. 20 caracteres.<br>'
+                        regexp:/^[A-ZÁ-ÿ\s]{1,20}$/,
+                        message:'Campo Nombre máx. 20 caracteres.<br> Solo Mayúsculas'
 			 		}
  			 	}					
 			},
@@ -20,7 +20,7 @@ $(document).ready(function() {
 						message:'Campo Apellido es obligatorio.<br>'
 					},
  			 		regexp:{
-			 			regexp:/^[a-zA-ZÁ-ÿ\s]{1,20}$/,
+			 			regexp:/^[A-ZÁ-ÿ\s]{1,20}$/,
 			 			message:'Campo Apellido máx. 20 caracteres.<br>>'
 			 		}
 				}				
@@ -32,7 +32,7 @@ $(document).ready(function() {
 						message:'Campo Correo es obligatorio.<br>'
 					},
  			 		regexp:{
-			 			regexp:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+			 			regexp:/^[A-Z0-9_.+-]+@[A-Z0-9-]+\.[A-Z0-9-.]+$/,
 			 			message:'Campo Correo presenta "@" y ".com".<br>'
 			 		}
 				}					
@@ -44,7 +44,7 @@ $(document).ready(function() {
 					},
  			 		regexp:{
 			 			regexp:/^\d{1,9}$/,
-			 			message:'Campo Teléfono es maximo 9 digitos.<br>'
+			 			message:'Campo Teléfono es maximo 9 dígitos.<br>'
 			 		}
 				}					
 			},

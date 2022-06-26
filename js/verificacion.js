@@ -1,7 +1,3 @@
-$(document).ready(function() {
-    mostrarDatos();
-});
-
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -32,11 +28,12 @@ $(function () {
 
 
     $(document).ready(function () {
+        mostrarDatos();
         //pone el nombre en el textcontrol
         let searchParams = new URLSearchParams(window.location.search);
         if (searchParams.has('id')) {
             let param = searchParams.get('id');
-            //$('#postulanteImagen').attr('src','https://verificacion-facial.herokuapp.com/api/v1/postulante/image/profile/'+param);                   
+            $('#postulanteImagen').attr('src','https://verificacion-facial.herokuapp.com/api/v1/postulante/image/profile/'+param);
             console.log('Postulante Imagen');
             console.log('parametro:' + param);
             $.ajax({
@@ -50,7 +47,7 @@ $(function () {
                     $('#postulanteEmail').text(response.email);
                     $('#postulanteTelefono').text(response.phone);
                     //TODO: temporal obtener la imagen desde el ajax, en el atributo imageUrl de la imagen
-                    $('#postulanteImagen').attr("src", response.imageUrl);
+                    //$('#postulanteImagen').attr("src", response.imageUrl);
                     //falta agregar ficha de postulacion
                 }
             });

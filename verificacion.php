@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Verificacion Facial | Cibertec</title>
+    <title>Verificación Facial | Cibertec</title>
     <style type="text/css">
         .card-img-top {
             width: 100% !important;
@@ -33,13 +33,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-12">
-                        <h1>VERIFICACION FACIAL</h1>
+                        <h1>VERIFICACIÓN FACIAL</h1>
                     </div>
                     <div class="col-sm-6">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Verificacion</li>
+                                <li class="breadcrumb-item active" aria-current="page">Verificación</li>
                             </ol>
                         </nav>
                     </div>
@@ -60,7 +60,7 @@
                                 <h5 class="card-title">Alumno: <span id="postulanteNombre">nombre alumno</span></h5>
                                 <p class="card-text">Datos de alumno</p>
                                 <p class="card-text">Email: <span id="postulanteEmail"></span></p>
-                                <p class="card-text">Telefono: <span id="postulanteTelefono"></span></p>
+                                <p class="card-text">Teléfono: <span id="postulanteTelefono"></span></p>
                             </div>
                         </div>
                                
