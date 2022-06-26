@@ -4,7 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
      <title>Ficha de Postulacion | Cibertec</title>
+     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    
      <?php require('./layout/link.php')?>
+     
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     
@@ -83,9 +86,11 @@
                                             <div class="form-row">
                                               <input type="text" class="form-control col-sm-6" id="idcod" name="id" hidden="">  
                                                   <div class="form-group col-md-12">
-                                                    <label for="inputNombre">POSTULANTE</label>
-                                                    <input type="text" class="form-control" id="idnombre" name="nombre" placeholder="Ingrese nombre del postulante">
-                                                  </div>
+                                                  <label for="inputPostulante">POSTULANTE</label>
+                                                      <select id="idpostu" name="postulante" class="form-control">
+                                                        <option selected>[SELECCIONE]</option>
+                                                      </select>
+                                                </div>
                                                   <div class="form-group col-md-12">
                                                       <label for="inputCarrera">CARRERA</label>
                                                       <select id="idcarrera" name="carrera" class="form-control">
@@ -140,7 +145,8 @@
     <!--FIN DE CONTENIDO DE CADA HTML-->
 
     <?php require('./layout/footeer.php')?>
-    <script src="./js/postulante.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="./js/ficha.js"></script>
 
 </body>
 </html>
