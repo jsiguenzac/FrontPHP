@@ -34,38 +34,24 @@ function Login() {
             console.log("mando error"+error);
             $('#Usuario').val(''),
             $('#Clave').val('')
-           // $('#mensaje').addClass('alert alert-dark').html('Credenciales Incorrectas!!!')
-
-            
-        }
-    });
-    if (request == true) {
-        // swal('Bienvenido ' + data.username, '', 'success');
-        Swal.fire({
-            title: 'Bienvenido ' + data.username,
-            icon: 'success',
-            width: '25%',
-            toast: true,
-            position: 'top-end',
-        })
-    }
-    else {
-        // swal('Credenciales Incorrectas!!!','', 'error');
+                  // swal('Credenciales Incorrectas!!!','', 'error');
         Swal.fire({
             title: 'Credenciales Incorrectas',
             icon: 'error',
             width: '25%',
            // background: '#000',
-            timer: 2000,
+            timer: 4000,
             timerProgressBar: true,
             toast: true,
-            position: 'top-end',
+            position: 'center',
             showConfirmButton: false,
             allowOutsideClick: false,
             allowEscapeKey: false,
             allowEnterKey: false,
             allowClickOutside: false,
         })
-    }
-
+            
+        }
+    });
+    
     }

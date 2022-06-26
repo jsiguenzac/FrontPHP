@@ -36,7 +36,7 @@
                         <div class="inputBox">
                             <input class="registro" type="submit" value="Restablecer Contraseña">
                         </div>
-                        <p class="forget"><a href="login.php">Iniciar Sesión</a></p>
+                        <p class="forget"><a href="index.php">Iniciar Sesión</a></p>
                     </form>
                 </div>
             </div>

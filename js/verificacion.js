@@ -92,7 +92,7 @@ function Verificacion() {
             if (willUpdate) { 
                 swal({
                 title:"Verificando...", 
-                text:"Comprabando identidad del postulante",
+                text:"Comprobando identidad del postulante",
                 icon: "https://www.boasnotas.com/img/loading2.gif",
                 buttons: false,      
                 closeOnClickOutside: false,

@@ -124,7 +124,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="login.html" class="nav-link active">
+                <a href="index.php" class="nav-link active">
                   <span class="lnr lnr-exit"></span>
                   <i class="fa fa-arrow-right"></i> <p>Cerrar Sesión </p>
                 </a>
