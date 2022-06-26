@@ -7,7 +7,7 @@ function conteoP(){
     var testData = !!document.getElementById("cant_postu");
     if(testData){
     $.ajax({
-        url:"http://localhost:8081/api/v1/postulante/listado",
+        url:"https://verificacion-facial.herokuapp.com/api/v1/postulante/listado",
         type:"GET",
         datatype: "json",
         success:function(response){                
@@ -21,7 +21,7 @@ function conteoC(){
     var testData = !!document.getElementById("cant_car");
     if(testData){
     $.ajax({
-        url:"http://localhost:8081/api/v1/carrera/listado",
+        url:"https://verificacion-facial.herokuapp.com/api/v1/carrera/listado",
         type:"GET",
         datatype: "json",
         success:function(response){                
@@ -35,7 +35,7 @@ function conteoA(){
     var testData = !!document.getElementById("cant_admi");
     if(testData){
     $.ajax({
-        url:"http://localhost:8081/api/v1/admision/listado",
+        url:"https://verificacion-facial.herokuapp.com/api/v1/admision/listado",
         type:"GET",
         datatype: "json",
         success:function(response){                
@@ -49,7 +49,7 @@ function conteoM(){
     var testData = !!document.getElementById("cant_moda");
     if(testData){
     $.ajax({
-        url:"http://localhost:8081/api/v1/modalidad/listado",
+        url:"https://verificacion-facial.herokuapp.com/api/v1/modalidad/listado",
         type:"GET",
         datatype: "json",
         success:function(response){                

@@ -60,7 +60,7 @@ $(document).ready(function() {
 tabladata = $('#tablePostulante').DataTable({
     responsive:true,
     "ajax": {
-        "url": 'http://localhost:8081/api/v1/postulante/listado',
+        "url": 'https://verificacion-facial.herokuapp.com/api/v1/postulante/listado',
         "type": "GET",
         "datatype": "json",
         //para que liste papi
@@ -157,7 +157,7 @@ function Guardar() {
     request.append("image", $("input[name=image]")[0].files[0]);
     console.log("Valor del Id"+$("#idcod").val());
     jQuery.ajax({
-        url: 'http://localhost:8081/api/v1/postulante/registrar',
+        url: 'https://verificacion-facial.herokuapp.com/api/v1/postulante/registrar',
         data: request,
         type: "POST",
         contentType: false,
@@ -209,7 +209,7 @@ function Editar() {
     request.append('_method', 'PUT');
     console.log("Valor del Id "+id);
     $.ajax({
-        url: 'http://localhost:8081/api/v1/postulante/editar/'+id,
+        url: 'https://verificacion-facial.herokuapp.com/api/v1/postulante/editar/'+id,
         data: request,
         type: "PUT",
         contentType: false,
@@ -261,7 +261,7 @@ $(document).on("click",".btn-eliminar",function(){
             var row = $(this).closest('td');            
             var row1 = tabladata.row( row ).length;     
                 $.ajax({
-                    url:"http://localhost:8081/api/v1/postulante/eliminar/"+cod,
+                    url:"https://verificacion-facial.herokuapp.com/api/v1/postulante/eliminar/"+cod,
                     type:"DELETE",
                     success:function(){
                         swal("Ok","Se eliminó correctamente!","success").then(function(){

@@ -31,7 +31,7 @@ $(document).ready(function() {
 tabladata = $('#tableAdmision').DataTable({
     responsive:true,
     "ajax": {
-        "url": 'http://localhost:8081/api/v1/admision/listado',
+        "url": 'https://verificacion-facial.herokuapp.com/api/v1/admision/listado',
         "type": "GET",
         "datatype": "json",
         //para que liste papi
@@ -107,7 +107,7 @@ function Guardar() {
             estado:$("#idestado").val()
     }
     jQuery.ajax({
-        url: 'http://localhost:8081/api/v1/admision/registrar',
+        url: 'https://verificacion-facial.herokuapp.com/api/v1/admision/registrar',
         type: "POST",
         data: JSON.stringify(request),
         contentType: "application/json; charset=utf-8",
@@ -146,7 +146,7 @@ function Editar() {
             estado:$("#idestado").val()
     }
     $.ajax({
-        url: 'http://localhost:8081/api/v1/admision/actualizar/'+id,      
+        url: 'https://verificacion-facial.herokuapp.com/api/v1/admision/actualizar/'+id,      
         type: "PUT",
         data: JSON.stringify(request),
         setTimeout:0,
@@ -195,7 +195,7 @@ $(document).on("click",".btn-eliminar",function(){
             var row = $(this).closest('td');            
             row1 = tabladata.row( row ).length;
             $.ajax({
-                url:"http://localhost:8081/api/v1/admision/eliminar/"+cod,
+                url:"https://verificacion-facial.herokuapp.com/api/v1/admision/eliminar/"+cod,
                 type:"DELETE",
                 success:function(){
                     swal("Ok","Se eliminó correctamente!","success").then(function(){

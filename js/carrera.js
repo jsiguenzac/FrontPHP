@@ -45,7 +45,7 @@ $(document).ready(function() {
 tabladata = $('#tableCarrera').DataTable({
     responsive:true,
     "ajax": {
-        "url": 'http://localhost:8081/api/v1/carrera/listado',
+        "url": 'https://verificacion-facial.herokuapp.com/api/v1/carrera/listado',
         "type": "GET",
         "datatype": "json",
         //para que liste papi
@@ -128,7 +128,7 @@ function Guardar() {
             areaid:$("#idarea").val()
     }
     jQuery.ajax({
-        url: 'http://localhost:8081/api/v1/carrera/registrar/area/'+request.areaid,
+        url: 'https://verificacion-facial.herokuapp.com/api/v1/carrera/registrar/area/'+request.areaid,
         type: "POST",
         data: JSON.stringify(request),
         contentType: "application/json; charset=utf-8",
@@ -169,7 +169,7 @@ function Editar() {
             areaid:$("#idarea").val()
     }
     $.ajax({
-        url: 'http://localhost:8081/api/v1/carrera/actualizar/'+request.id,    
+        url: 'https://verificacion-facial.herokuapp.com/api/v1/carrera/actualizar/'+request.id,    
         type: "PUT",
         data: JSON.stringify(request),
         setTimeout:0,
@@ -217,7 +217,7 @@ $(document).on("click",".btn-eliminar",function(){
             var row = $(this).closest('td');            
             row1 = tabladata.row( row ).length;        
                 $.ajax({
-                    url:"http://localhost:8081/api/v1/carrera/eliminar/"+cod,
+                    url:"https://verificacion-facial.herokuapp.com/api/v1/carrera/eliminar/"+cod,
                     type:"DELETE",
                     success:function(){
                         swal("Ok","Se eliminó correctamente!","success").then(function(){
@@ -245,7 +245,7 @@ $(document).on("click","#idcancelar",function(){
 
 function loadCombo(){     
     $.ajax({
-    url:"http://localhost:8081/api/v1/area/listado",
+    url:"https://verificacion-facial.herokuapp.com/api/v1/area/listado",
     type:"GET",
     datatype: "json",
     success:function(response){

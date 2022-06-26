@@ -8,7 +8,7 @@ function Registrar() {
     }
     console.log(request)
     jQuery.ajax({
-        url: 'http://localhost:8081/api/v1/usuario/registro',
+        url: 'https://verificacion-facial.herokuapp.com/api/v1/usuario/registro',
         type: "POST",
         data: JSON.stringify(request),
         //el tipo de dato que devolvera el servidor 

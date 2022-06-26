@@ -36,11 +36,11 @@ $(function () {
         let searchParams = new URLSearchParams(window.location.search);
         if (searchParams.has('id')) {
             let param = searchParams.get('id');
-            //$('#postulanteImagen').attr('src','http://localhost:8081/api/v1/postulante/image/profile/'+param);                   
+            //$('#postulanteImagen').attr('src','https://verificacion-facial.herokuapp.com/api/v1/postulante/image/profile/'+param);                   
             console.log('Postulante Imagen');
             console.log('parametro:' + param);
             $.ajax({
-                url: 'http://localhost:8081/api/v1/postulante/' + param,
+                url: 'https://verificacion-facial.herokuapp.com/api/v1/postulante/' + param,
                 type: 'GET',
                 datatype: "json",
                 dataSrc: "",
@@ -101,7 +101,7 @@ function Verificacion() {
                 }); 
                 console.log('Id postulante:'+param);
                 jQuery.ajax({
-                    url: 'http://localhost:8081/api/v1/imagen/verify/'+param,
+                    url: 'https://verificacion-facial.herokuapp.com/api/v1/imagen/verify/'+param,
                     type: "POST",
                     data: formData,
                     contentType: false,

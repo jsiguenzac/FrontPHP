@@ -5,7 +5,7 @@ function Login() {
     }
     console.log(request)
     jQuery.ajax({
-        url: 'http://localhost:8081/api/v1/usuario/login',
+        url: 'https://verificacion-facial.herokuapp.com/api/v1/usuario/login',
         type: "POST",
         data: JSON.stringify(request),
         //el tipo de dato que devolvera el servidor 

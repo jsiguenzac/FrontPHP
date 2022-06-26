@@ -7,7 +7,7 @@ function mostrarDatos() {
     //solo en index
     if(testData){
         $.ajax({
-            url:"http://localhost:8081/api/v1/usuario/"+username,
+            url:"https://verificacion-facial.herokuapp.com/api/v1/usuario/"+username,
             type:"GET",
             datatype: "json",
             success:function(response){                
