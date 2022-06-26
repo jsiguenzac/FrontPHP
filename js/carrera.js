@@ -109,7 +109,6 @@ tabladata = $('#tableCarrera').DataTable({
 
 });
 
-
 //AGREGAR/ACTUALIZAR CARRERA
 function Grabar(){
     var id = $("#idcod").val();    
