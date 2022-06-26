@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
      <title>Ficha de Postulacion | Cibertec</title>
-     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    
+     <link rel="stylesheet" type="text/css" href="./css/select2.css">
      <?php require('./layout/link.php')?>
      
 </head>
@@ -82,31 +81,31 @@
                                     </div>
                                     <div class="modal-body">
                                       <!--inicio de cajas --------->
-                                            <form id="idpostulantes" action=" " method="post" enctype="multipart/form-data" autocomplete="off">
+                                            <form id="idfichaa" action=" " method="post" autocomplete="off">
                                             <div class="form-row">
                                               <input type="text" class="form-control col-sm-6" id="idcod" name="id" hidden="">  
                                                   <div class="form-group col-md-12">
                                                   <label for="inputPostulante">POSTULANTE</label>
                                                       <select id="idpostu" name="postulante" class="form-control">
-                                                        <option selected>[SELECCIONE]</option>
+                                                      <option value="-1">[SELECIONE]</option>
                                                       </select>
-                                                </div>
+                                                </div>                                        
                                                   <div class="form-group col-md-12">
                                                       <label for="inputCarrera">CARRERA</label>
                                                       <select id="idcarrera" name="carrera" class="form-control">
-                                                        <option selected>[SELECCIONE]</option>
+                                                      <option value="-1">[SELECIONE]</option>
                                                       </select>
                                                   </div>
                                                   <div class="form-group col-md-6">
                                                       <label for="inputModalidad">MODALIDAD</label>
                                                       <select id="idmodalidad" name="modalidad" class="form-control">
-                                                        <option selected>[SELECCIONE]</option>
+                                                      <option value="-1">[SELECIONE]</option>
                                                       </select>
                                                   </div>	
                                                   <div class="form-group col-md-6">
                                                       <label for="inputAdmision">ADMISION</label>
                                                       <select id="idadmision" name="admision" class="form-control">
-                                                        <option selected>[SELECCIONE]</option>
+                                                      <option value="-1">[SELECIONE]</option>
                                                       </select>
                                                   </div>
                                                   <div class="form-group col-md-6">
@@ -127,7 +126,6 @@
                                               </div>	
                                                   <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger" id="idcancelar" data-bs-dismiss="modal">CANCELAR</button>
-                                                    <if ></if>
                                                     <button type="submit" class="btn btn-success" onclick="Grabar()">GRABAR</button>
                                                   </div>
                                             </form>	
@@ -143,10 +141,10 @@
   </div>
   <!-- /.content-wrapper -->
     <!--FIN DE CONTENIDO DE CADA HTML-->
-
+       
     <?php require('./layout/footeer.php')?>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="./js/ficha.js"></script>
-
+	  <script src="./js/select2.js"></script>
+     <script src="./js/ficha.js"></script>
+     
 </body>
 </html>

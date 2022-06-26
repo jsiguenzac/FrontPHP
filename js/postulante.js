@@ -280,9 +280,7 @@ $(document).on("click",".btn-eliminar",function(){
 $(document).on("click","#idcancelar",function(){
     //reiniciar Validacion
     $("#idAgregarPos").data("bootstrapValidator").resetForm(true);
-     //reiniciar Validacion
-     $("#idEditarPos").data("bootstrapValidator").resetForm(true);
-
+     
     //limpiar controles
     $("#idpostulantes").trigger("reset");		
     $("#idcod").val("0");			

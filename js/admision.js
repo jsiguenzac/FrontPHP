@@ -8,7 +8,7 @@ $(document).ready(function() {
                         message:'Campo Nombre es obligatorio.<br>'	
                     },
                     regexp:{
-                      regexp:/^[a-zA-Z0-9\-\ ]{1,20}$/,
+                      regexp:/^[A-Z0-9\-\ ]{1,20}$/,
                       message:'Campo Nombre máx. 20 caracteres.<br>'
                    }
                 }				
@@ -20,7 +20,7 @@ $(document).ready(function() {
                         message:'Campo Estado es obligatorio.<br>'
                     },
                     Regexp:{
-                        Regexp:/^[a-zA-Z0-9\ ]{2,15}$/,
+                        Regexp:/^[A-Z0-9\ ]{2,15}$/,
                         message:'Seleccione un Estado.<br>'
                     }
                 }
