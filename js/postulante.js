@@ -2,31 +2,31 @@ var tabladata;
 $(document).ready(function() {    
     $('#idAgregarPos').bootstrapValidator({		
 		fields:{	
-			nombre:{
+			name:{
 				validators:{
  			 		notEmpty:{
  			 			message:'Campo Nombre es obligatorio.<br>'	
  			 		},
  			 		regexp:{
-                        regexp:/^[A-Z\s]{1,50}$/,
+                        regexp:/^[A-Z\ ]{1,50}$/,
                         message:'Campo Nombre máx. 50 caracteres.<br> Solo Mayúsculas'
 			 		}
  			 	}					
 			},
 			
-			apellido:{
+			lastName:{
 				validators:{
 					notEmpty:{
 						message:'Campo Apellido es obligatorio.<br>'
 					},
  			 		regexp:{
-			 			regexp:/^[A-Z\s]{1,50}$/,
+			 			regexp:/^[A-Z\ ]{1,50}$/,
 			 			message:'Campo Apellido máx. 50 caracteres.<br> Solo mayúsculas'
 			 		}
 				}				
 			},
 						
-			correo:{
+			email:{
 				validators:{
 					notEmpty:{
 						message:'Campo Correo es obligatorio.<br>'
@@ -37,7 +37,7 @@ $(document).ready(function() {
 			 		}
 				}					
 			},
-            fono:{
+            phone:{
 				validators:{
 					notEmpty:{
 						message:'Campo Teléfono es obligatorio.<br>'
@@ -167,7 +167,7 @@ function Guardar() {
         //contentType: "application/json; charset=utf-8",
         success: function (data) {
             if (data) {       
-                swal("Exito", "Se guardo la correctamente", "success")
+                swal("Éxito", "Se guardó la correctamente", "success")
                 //reiniciar Validacion
                 $("#idAgregarPos").data("bootstrapValidator").resetForm(true);	
                 $('#idAgregarPos').modal('hide');
@@ -211,18 +211,15 @@ function Editar() {
     $.ajax({
         url: 'https://verificacion-facial.herokuapp.com/api/v1/postulante/editar/'+id,
         data: request,
-        type: "PUT",
+        type: "POST",
         contentType: false,
         processData: false,
         cache: false,
         //data: JSON.stringify(request),
-        //contentType: "application/json; charset=utf-8",
-        beforeSend: function () {
-           // console.log(data)
-        },
+        //contentType: "application/json; charset=utf-8",        
         success: function (data) {
             if (data) {       
-                swal("Exito", "Se guardo la correctamente", "success")
+                swal("Éxito", "Se Actualizó la correctamente", "success")
                 //reiniciar Validacion
                 $("#idAgregarPos").data("bootstrapValidator").resetForm(true);	
                 $('#idAgregarPos').modal('hide');
@@ -234,11 +231,11 @@ function Editar() {
             }
         },
         error: function (error) {
-            console.log(error);
-             //reiniciar Validacion
-        $("#idAgregarPos").data("bootstrapValidator").resetForm(true);
+            console.log(error);           
        
-        }
+        },beforeSend: function () {
+            //console.log(data)
+         }
     });
 }
 }

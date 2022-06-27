@@ -84,19 +84,19 @@
                                               <input type="text" class="form-control col-sm-2" id="idcod" name="id" hidden="">  
                                                   <div class="form-group col-md-6">
                                                     <label for="inputNombre">NOMBRE</label>
-                                                    <input type="text" class="form-control" id="idnombre" name="nombre" placeholder="Ingrese nombre del postulante">
+                                                    <input type="text" class="form-control" id="idnombre" name="name" placeholder="Ingrese nombre del postulante">
                                                   </div>
                                                   <div class="form-group col-md-6">
                                                     <label for="inputApellido">APELLIDO</label>
-                                                    <input type="text" class="form-control" id="idapellido" name="apellido" placeholder="Ingrese apellido del postulante">
+                                                    <input type="text" class="form-control" id="idapellido" name="lastName" placeholder="Ingrese apellido del postulante">
                                                   </div>
                                                   <div class="form-group col-md-6">
                                                     <label for="inputCorreo">CORREO</label>
-                                                    <input type="text" class="form-control" id="idcorreo" name="correo" placeholder="Ingrese correo del postulante">
+                                                    <input type="text" class="form-control" id="idcorreo" name="email" placeholder="Ingrese correo del postulante">
                                                   </div>
                                                   <div class="form-group col-md-6">
                                                     <label for="inputFono">TELEFONO</label>
-                                                    <input type="text" class="form-control" id="idfono" name="fono" placeholder="Ingrese telefono del postulante">
+                                                    <input type="text" class="form-control" id="idfono" name="phone" placeholder="Ingrese telefono del postulante">
                                                   </div>
                                                   <div class="form-group col-md-9">
                                                     <label for="formFileSm" class="form-label">IMAGEN</label>
