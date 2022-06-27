@@ -9,8 +9,8 @@ $(document).ready(function() {
  			 			message:'Campo Nombre es obligatorio.<br>'
  			 		},
  			 		regexp:{
-                        regexp:/^[A-Z0-9\ñ\Ñ\á\é\í\ó\ú\Á\É\Í\Ó\Ú\@\_\''\""\-\*\+\!\¿\?\¡\(\)\·\$\#\|\´\/\.\{\}\=\Ä\Ë\Ï\Ö\Ü\ä\ë\ï\ö\ü\%\[\]\<\,\>\ ]{1,50}$/,
-                        message:'Campo Nombre máx. 50 caracteres.<br>'
+                        regexp:/^[A-Z\Ñ\ \[\] ]{1,50}$/,
+                        message:'Campo Nombre máx. 50 caracteres.<br> Solo mayúsculas'
 			 		}
  			 	}					
 			},

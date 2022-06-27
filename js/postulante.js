@@ -8,8 +8,8 @@ $(document).ready(function() {
  			 			message:'Campo Nombre es obligatorio.<br>'	
  			 		},
  			 		regexp:{
-                        regexp:/^[A-ZÁ-ÿ\s]{1,20}$/,
-                        message:'Campo Nombre máx. 20 caracteres.<br> Solo Mayúsculas'
+                        regexp:/^[A-Z\s]{1,50}$/,
+                        message:'Campo Nombre máx. 50 caracteres.<br> Solo Mayúsculas'
 			 		}
  			 	}					
 			},
@@ -20,8 +20,8 @@ $(document).ready(function() {
 						message:'Campo Apellido es obligatorio.<br>'
 					},
  			 		regexp:{
-			 			regexp:/^[A-ZÁ-ÿ\s]{1,20}$/,
-			 			message:'Campo Apellido máx. 20 caracteres.<br>>'
+			 			regexp:/^[A-Z\s]{1,50}$/,
+			 			message:'Campo Apellido máx. 50 caracteres.<br> Solo mayúsculas'
 			 		}
 				}				
 			},
