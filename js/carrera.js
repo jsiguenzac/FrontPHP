@@ -182,7 +182,7 @@ function Editar() {
                $('#idAgregarCar').modal('hide');
                $("#idcarreras").trigger("reset");		
                $("#idcod").val("0");		
-               tabladata.ajax.reload();                
+               document.location.reload();                
             } else {
                 swal("Error", "No se pudo actualizar", "warning")
             }

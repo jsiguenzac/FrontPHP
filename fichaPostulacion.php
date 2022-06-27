@@ -51,7 +51,13 @@
                           <tr style="text-align: center;">
                           <th>Nº</th>
                           <th style="display: none;"></th>
+                          <th style="display: none;"></th>
+                          <th style="display: none;"></th>
+                          <th style="display: none;"></th>
+                          <th>POSTULANTE</th>
                           <th>MODALIDAD</th>
+                          <th>ADMISION</th>
+                          <th>CARRERA</th>
                           <th>MONTO</th>
                           <th>N° PAGO</th>
                           <th>ESTADO</th>
@@ -88,25 +94,25 @@
                                                   <div class="form-group col-md-12">
                                                   <label for="inputPostulante">POSTULANTE</label>
                                                       <select id="idpostu" name="postulante" class="form-control">
-                                                      <option value="-1">[SELECIONE]</option>
+                                                      <option selected>[SELECIONE]</option>
                                                       </select>
                                                 </div>                                        
                                                   <div class="form-group col-md-12">
                                                       <label for="inputCarrera">CARRERA</label>
                                                       <select id="idcarrera" name="carrera" class="form-control">
-                                                      <option value="-1">[SELECIONE]</option>
+                                                      <option selected>[SELECIONE]</option>
                                                       </select>
                                                   </div>
                                                   <div class="form-group col-md-6">
                                                       <label for="inputModalidad">MODALIDAD</label>
                                                       <select id="idmodalidad" name="modalidad" class="form-control">
-                                                      <option value="-1">[SELECIONE]</option>
+                                                      <option selected>[SELECIONE]</option>
                                                       </select>
                                                   </div>	
                                                   <div class="form-group col-md-6">
                                                       <label for="inputAdmision">ADMISION</label>
                                                       <select id="idadmision" name="admision" class="form-control">
-                                                      <option value="-1">[SELECIONE]</option>
+                                                      <option selected>[SELECIONE]</option>
                                                       </select>
                                                   </div>
                                                   <div class="form-group col-md-6">

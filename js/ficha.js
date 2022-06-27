@@ -1,8 +1,12 @@
 var tabladata;
 $(document).ready(function() { 
-    mostrarDatos();
-    buscaPostulant(); cargarModalidad();
+    $('#idmodalidad').select2({dropdownParent: $('#idAgregarFicha')});
+    $('#idpostu').select2({dropdownParent: $('#idAgregarFicha')});
+    $('#idadmision').select2({dropdownParent: $('#idAgregarFicha')});
+    $('#idcarrera').select2({dropdownParent: $('#idAgregarFicha')});
+    cargarModalidad(); cargarPostulant(); 
     cargarAdmision(); cargarCarrera();
+    mostrarDatos();    
     $('#idAgregarFicha').bootstrapValidator({		
 		fields:{	
 			postulante:{
@@ -84,8 +88,14 @@ tabladata = $('#tableFicha').DataTable({
         },
         "columns": [       
             { "data": "id" },
+            { "data": "idPostulante", visible: false, searchseable: true},
             { "data": "idModalidad", visible: false, searchseable: true},
+            { "data": "idAdmision", visible: false, searchseable: true}, 
+            { "data": "idCarrera", visible: false, searchseable: true}, 
+            { "data": "nombrePostulante" },           
             { "data": "nombreModalidad" },
+            { "data": "nombreAdmision" },
+            { "data": "nombreCarrera" },
             { "data": "monto" },
             { "data": "nroPago" },
             { "data": "estado" },
@@ -104,7 +114,7 @@ tabladata = $('#tableFicha').DataTable({
         ],
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
-        }
+        }        
         });
 
     /*EVENTO ONCLICK AL BTN-EDIT*/
@@ -121,34 +131,41 @@ tabladata = $('#tableFicha').DataTable({
         })
             .then((willUpdate) => {
                 if (willUpdate) {
-                    var id,modalidad,monto,nroPago,estado;
+                    var id,postulante,modalidad,admision,carrera,monto,nroPago,estado;
                     var row = $(this).closest('tr');
 
                     //obtener datos de las filas de la tabla
                     id = tabladata.row( row ).data().id;
-                    //idPostulante = tabladata.row( row ).data().descripcion;
+                    postulante = tabladata.row( row ).data().idPostulante;
                     modalidad = tabladata.row( row ).data().idModalidad;
+                    admision = tabladata.row( row ).data().idAdmision;
+                    carrera = tabladata.row( row ).data().idCarrera;
                     monto = tabladata.row( row ).data().monto;
                     nroPago = tabladata.row( row ).data().nroPago;
                     estado = tabladata.row( row ).data().estado;
-                    console.log(row)
-                    console.log(modalidad)
+                    //console.log(row)
+                    //console.log(modalidad)
 
                     //mostrar datos
-                    //$("#idpostu").val(idPostulante);
-                    //$("#idcarrera").val();
                     $("#idcod").val(id);
+                    $("#idpostu").val(postulante);
                     $("#idmodalidad").val(modalidad);
-                    //$("#idadmision").val();
+                    $("#idadmision").val(admision);
+                    $("#idcarrera").val(carrera);
                     $("#idmonto").val(monto);
                     $("#idnoperacion").val(nroPago);
                     $("#idestado").val(estado);
+                    cargarModalidad(modalidad);
+                    cargarPostulant(postulante);
+                    cargarAdmision(admision);
+                    cargarCarrera(carrera);
                     $('#idAgregarFicha').modal('show'); //abrir modal
                 }
             });
     })
 
 });
+
 
 //
 function Grabar(){
@@ -238,7 +255,7 @@ function Editar() {
                     $('#idAgregarFicha').modal('hide');
                     $("#idfichaa").trigger("reset");
                     $("#idcod").val("0");
-                    tabladata.ajax.reload();
+                    document.location.reload();
                 } else {
                     swal("Error", "No se pudo actualizar", "warning")
                 }
@@ -252,14 +269,6 @@ function Editar() {
         });
     }
 }
-
-
-
-
-
-
-
-
 
 /*EVENTO ONCLICK AL BTN-eliminar*/
 $(document).on("click",".btn-eliminar",function(){
@@ -295,62 +304,86 @@ $(document).on("click",".btn-eliminar",function(){
         });
 })
 
-
-
-
-
-  function buscaPostulant(){       
+function cargarPostulant(postulante){       
     $.ajax({
         url:"https://verificacion-facial.herokuapp.com/api/v1/postulante/listado",
         type:"GET",
         datatype: "json",
         success:function(response){
+            $('#idpostu option').remove();
+            $('#idpostu').append("<option value='-1'>[SELECIONE]</opction>")
                    $.each(response,function(index, fila){
+                    if(postulante == fila.id){ 
+                        $('#idpostu').append("<option value='"+fila.id+"'selected>"+fila.id+" | "+fila.name+" "+fila.lastName+"</opction>"); 
+                    }else{
+                        //
                         $('#idpostu').append("<option value='"+fila.id+"'>"+fila.id+" | "+fila.name+" "+fila.lastName+"</opction>"); 
-                        $('#idpostu').select2({dropdownParent: $('#idAgregarFicha')}); 
-                    });
+                    }
+                });
         }
     }); 
-
 }
 
-function cargarModalidad(){     
+function cargarModalidad(modalidad){
     $.ajax({
     url:"https://verificacion-facial.herokuapp.com/api/v1/modalidad/listado",
     type:"GET",
     datatype: "json",
-    success:function(response){
-               $.each(response,function(index, fila){
-                    $('#idmodalidad').append("<option value='"+fila.id+"'>"+fila.descripcion+"</opction>")
-                    $('#idmodalidad').select2({dropdownParent: $('#idAgregarFicha')});
+    success:function(response){       
+            console.log( "Valoooor: "+modalidad)
+            $('#idmodalidad option').remove();
+            $('#idmodalidad').append("<option value='-1'>[SELECIONE]</opction>")
+                $.each(response,function(index, fila){                    
+                    if(modalidad == fila.id){ 
+                            $('#idmodalidad').append("<option value='"+fila.id+"' selected>"+fila.descripcion+"</option>")
+                            //$('#idmodalidad').select2({dropdownParent: $('#idAgregarFicha')});
+                    }else{ 
+                        //                       
+                        $('#idmodalidad').append("<option value='"+fila.id+"'>"+fila.descripcion+"</option>")                        
+                    }
                 });
+           
+                
     }
 }); 
 }
 
-function cargarAdmision(){     
+function cargarAdmision(admision){     
     $.ajax({
     url:"https://verificacion-facial.herokuapp.com/api/v1/admision/listado",
     type:"GET",
     datatype: "json",
     success:function(response){
+            $('#idadmision option').remove();
+            $('#idadmision').append("<option value='-1'>[SELECIONE]</opction>")
                $.each(response,function(index, fila){
-                    $('#idadmision').append("<option value='"+fila.id+"'>"+fila.descripcion+"</opction>")
-                    $('#idadmision').select2({dropdownParent: $('#idAgregarFicha')});
+                    if(admision == fila.id){
+                        $('#idadmision').append("<option value='"+fila.id+"'selected>"+fila.descripcion+"</opction>")
+                    }else{
+                        //
+                        $('#idadmision').append("<option value='"+fila.id+"'>"+fila.descripcion+"</opction>")
+                    }
                 });
     }
 }); 
 }
 
-function cargarCarrera(){     
+function cargarCarrera(carrera){     
     $.ajax({
     url:"https://verificacion-facial.herokuapp.com/api/v1/carrera/listado",
     type:"GET",
     datatype: "json",
     success:function(response){
+            $('#idcarrera option').remove();
+            $('#idcarrera').append("<option value='-1'>[SELECIONE]</opction>")
                $.each(response,function(index, fila){
-                    $('#idcarrera').append("<option value='"+fila.id+"'>"+fila.descripcion+"</opction>")
-                    $('#idcarrera').select2({dropdownParent: $('#idAgregarFicha')});
+                    if(carrera == fila.id){
+                        $('#idcarrera').append("<option value='"+fila.id+"' selected>"+fila.descripcion+"</opction>")
+                        //$('#idcarrera').select2({dropdownParent: $('#idAgregarFicha')});
+                    }else{
+                        //
+                        $('#idcarrera').append("<option value='"+fila.id+"'>"+fila.descripcion+"</opction>")                        
+                    }
                 });
     }
 }); 
@@ -363,6 +396,8 @@ $(document).on("click","#idcancelar",function(){
 
     //limpiar controles 
     $("#idfichaa").trigger("reset");
+    document.location.reload();
+    //$('#idmodalidad').val("-1");
     $("#idcod").val("0");	
 })
 

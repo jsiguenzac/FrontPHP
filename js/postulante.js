@@ -173,7 +173,7 @@ function Guardar() {
                 $('#idAgregarPos').modal('hide');
                 $("#idpostulantes").trigger("reset");		
                 $("#idcod").val("0");
-                tabladata.ajax.reload();
+                document.location.reload();
             } else {
                 swal("Error", "No se pudo guardar los cambios", "warning")
             }
@@ -228,7 +228,7 @@ function Editar() {
                 $('#idAgregarPos').modal('hide');
                 $("#idpostulantes").trigger("reset");		
                 $("#idcod").val("0");
-                tabladata.ajax.reload();
+                document.location.reload();
             } else {
                 swal("Error", "No se pudo guardar los cambios", "warning")
             }

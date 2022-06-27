@@ -158,7 +158,7 @@ function Editar() {
                 $('#idAgregarModa').modal('hide');
                 $("#idmodalidad").trigger("reset");		
                 $("#idcod").val("0");		
-                document.location.href = "modalidad.php";              
+                document.location.reload();              
             } else {
                 swal("Error", "No se pudo actualizar", "warning")
             }
