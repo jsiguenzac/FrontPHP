@@ -57,8 +57,8 @@
                                 src="https://i.pinimg.com/originals/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
                                 alt="Card image cap" />
                             <div class="card-body">
-                                <h5 class="card-title">Alumno: <span id="postulanteNombre">nombre alumno</span></h5>
-                                <p class="card-text">Datos de alumno</p>
+                                <h4 class="card-text">Datos de alumno</h4>
+                                <p class="card-title">Alumno: <span id="postulanteNombre"></span></p>
                                 <p class="card-text">Email: <span id="postulanteEmail"></span></p>
                                 <p class="card-text">Teléfono: <span id="postulanteTelefono"></span></p>
                             </div>
@@ -70,12 +70,11 @@
                             <div class="card-body">
                                 <p class="card-title">Foto de postulante a verificar</p>
                                 <p class="card-text">Tamaño máximo de imagen: 6MB</p>
-                                <p class="card-text">Formato de imagen: jpg,png,gif.</p>
+                                <p class="card-text">Formato de imagen: jpg.</p>
                                 <!--Subir archivo de imagen o webcam-->
                                 <div class="input-group">
                                     <label class="input-group-btn">
-                                        <span class="btn btn-dark">
-                                            Subir Foto <input type="file" id="uploadImage" style="display: none;"
+                                        <span class="btn btn-info"> Subir Foto <input type="file" id="uploadImage" style="display: none;"
                                                 accept="image/png, image/jpeg">
                                         </span>
                                     </label>
@@ -87,8 +86,7 @@
                 <div class="row">
                    
                     <div class="col-md-6 offset-md-3" style="display:none;">
-                        <div class="alert alert-success alert-dismissible fade show" role="alert" id="alertSuccess"
-                            >
+                        <div class="alert alert-success alert-dismissible fade show" role="alert" id="alertSuccess">
                             <strong>¡Bien!</strong> Tu imagen fue verificada correctamente.
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -96,8 +94,8 @@
                         </div>
                     </div>
                     <!--Se habilita cuando se suba imagen-->
-                    <button class="btn btn-dark mx-auto w-25" id="verifyButton" type="button" onClick="Verificacion()" disabled>
-                    <span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    <button style="background: green" class="btn btn-dark mx-auto w-25" id="verifyButton" type="button" onClick="Verificacion()" disabled>
+                    <!--<span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>-->
                     Verificar
                     </button>
                 </div>
