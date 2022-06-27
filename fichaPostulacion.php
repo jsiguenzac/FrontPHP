@@ -46,15 +46,14 @@
                 <div class="card-body">
                   <div class="table-responsive">                         
                     <!--Tabla-->
-                    <table id="tablePostulante" class="table table-bordered table-hover table-striped">
+                    <table id="tableFicha" class="table table-bordered table-hover table-striped">
                         <thead class="table-dark">
                           <tr style="text-align: center;">
                           <th>Nº</th>
                           <th>POSTULANTE</th>
                           <th>CARRERA</th>
                           <th>MODALIDAD</th>
-                          <th>ADMISION</th>  
-                          <th style="display: none;"></th>                                    
+                          <th>ADMISION</th>                                    
                           <th>ACCIONES</th>
                           </tr>
                         </thead>
@@ -142,9 +141,9 @@
   <!-- /.content-wrapper -->
     <!--FIN DE CONTENIDO DE CADA HTML-->
        
+	  
     <?php require('./layout/footeer.php')?>
-	  <script src="./js/select2.js"></script>
      <script src="./js/ficha.js"></script>
-     
+     <script src="./js/select2.js"></script>
 </body>
 </html>
