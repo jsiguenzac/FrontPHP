@@ -50,10 +50,10 @@
                         <thead class="table-dark">
                           <tr style="text-align: center;">
                           <th>Nº</th>
-                          <th>POSTULANTE</th>
-                          <th>CARRERA</th>
-                          <th>MODALIDAD</th>
-                          <th>ADMISION</th>                                    
+                          <th>MONTO</th>
+                          <th>N° PAGO</th>
+                          <th>ESTADO</th>
+                          <th>FECHA REGISTRO</th>
                           <th>ACCIONES</th>
                           </tr>
                         </thead>

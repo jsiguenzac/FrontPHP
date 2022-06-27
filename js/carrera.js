@@ -231,16 +231,7 @@ $(document).on("click",".btn-eliminar",function(){
     });
 })
 
-//evento onclick al BOTON CANCELAR1
-$(document).on("click","#idcancelar",function(){
-    //reiniciar Validacion
-   $("#idAgregarCar").data("bootstrapValidator").resetForm(true);
 
-    //limpiar controles
-    $("#idcarreras").trigger("reset");		
-    $("#idcod").val("0");			
-        
-})
 
 function loadCombo(){     
     $.ajax({
@@ -255,6 +246,16 @@ function loadCombo(){
     }
 }); 
 }
+//evento onclick al BOTON CANCELAR1
+$(document).on("click","#idcancelar",function(){
+    //reiniciar Validacion
+    $("#idAgregarCar").data("bootstrapValidator").resetForm(true);
 
+    //limpiar controles
+    $("#idcarreras").trigger("reset");
+    $("#idcod").val("0");
+    document.location.reload();
+
+})
 
 

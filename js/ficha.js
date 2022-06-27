@@ -84,10 +84,10 @@ tabladata = $('#tableFicha').DataTable({
         },
         "columns": [       
             { "data": "id" },
-            { "data": "postulante" },
-            { "data": "carrera" },
-            { "data": "modalidad" },
-            { "data": "admision" },
+            { "data": "monto" },
+            { "data": "nroPago" },
+            { "data": "estado" },
+            { "data": "fechaRegistro" },
             {
                 "data": "id", "render": function (data, type, row, meta) {
                     return $("<button>").addClass("btn btn-primary btn-editar btn-sm").append(
@@ -104,8 +104,43 @@ tabladata = $('#tableFicha').DataTable({
             "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
         }
         });
-        
 
+    /*EVENTO ONCLICK AL BTN-EDIT*/
+    $(document).on("click",".btn-editar",function(){
+        $("#idAgregarFicha").data("bootstrapValidator").resetForm(true);
+        var nombre;
+        nombre=$(this).parents("tr").find("td")[1].innerHTML;
+        swal({
+            title: "¿Seguro que desea editar "+nombre+"?",
+            text: "Se actualizará de la lista",
+            icon: "warning",
+            dangerMode: true,
+            buttons: true,
+        })
+            .then((willUpdate) => {
+                if (willUpdate) {
+                    var id,monto,nroPago,estado;
+                    var row = $(this).closest('tr');
+                    //obtener datos de las filas de la tabla
+                    id = tabladata.row( row ).data().id;
+                    //idPostulante = tabladata.row( row ).data().descripcion;
+                    monto = tabladata.row( row ).data().monto;
+                    nroPago = tabladata.row( row ).data().nroPago;
+                    estado = tabladata.row( row ).data().estado;
+
+                    //mostrar datos
+                    //$("#idpostu").val(idPostulante);
+                    //$("#idcarrera").val();
+                    //$("#idmodalidad").val();
+                    //$("#idadmision").val();
+                    $("#idmonto").val(monto);
+                    $("#idnoperacion").val(nroPago);
+                    $("#idcod").val(id);
+                    $("#idestado").val(estado);
+                    $('#idAgregarFicha').modal('show'); //abrir modal
+                }
+            });
+    })
 
 });
 
@@ -119,19 +154,20 @@ function Grabar(){
 function Guardar() {
     var postu = $("#idpostu").val();
     var carrera = $("#idcarrera").val();
-    var admision = $("#idadmision").val();
     var modalidad = $("#idmodalidad").val();
+    var admision = $("#idadmision").val();
+    var monto = $("#idmonto").val();
+    var operacion = $("#idnoperacion").val();
     //var id = $("#id").val();
-    if(postu > 0 && carrera > 0 && admision > 0 && modalidad > 0){
-    var request = {
-            estado:$("#idestado").val(),
-            postu : $("#idpostu").val(),
-            carrera : $("#idcarrera").val(),
-            modalidad : $("#idmodalidad").val(),
-            admision : $("#idadmision").val(),
-            monto : $("#idmonto").val(),
-            nroperacion : $("#idnroperacion").val(),
 
+    var request = {
+            idPostulante:$("#idpostu").val(),
+            idCarrera:$("#idcarrera").val(),
+            idModalidad:$("#idmodalidad").val(),
+            idAdmision:$("#idadmision").val(),
+            monto:$("#idmonto").val(),
+            nroPago:$("#idnoperacion").val(),
+            estado:$("#idestado").val(),
     }
     jQuery.ajax({
         url: 'https://verificacion-facial.herokuapp.com/api/v1/ficha/registrar',
@@ -160,11 +196,98 @@ function Guardar() {
 			console.log(request)
         },
     });
-}else{
-    swal("ERROR!", "Ocurrió un error al grabar la ficha", "Error")
-}
+
 
 }
+function Editar() {
+    var postu = $("#idpostu").val();
+    var carrera = $("#idcarrera").val();
+    var modalidad = $("#idmodalidad").val();
+    var admision = $("#idadmision").val();
+    var monto = $("#idmonto").val();
+    var operacion = $("#idnoperacion").val();
+    if(monto != "" && operacion !=""){
+        var request = {
+            id:$("#idcod").val(),
+            idPostulante:$("#idpostu").val(),
+            idCarrera:$("#idcarrera").val(),
+            idModalidad:$("#idmodalidad").val(),
+            idAdmision:$("#idadmision").val(),
+            monto:$("#idmonto").val(),
+            nroPago:$("#idnoperacion").val(),
+            estado:$("#idestado").val(),
+        }
+        $.ajax({
+            url: 'https://verificacion-facial.herokuapp.com/api/v1/ficha/actualizar/'+request.id,
+            type: "PUT",
+            data: JSON.stringify(request),
+            setTimeout:0,
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+
+                if (data) {
+                    swal("Éxito", "Se actualizó correctamente", "success")
+                    //reiniciar Validacion
+                    $("#idAgregarFicha").data("bootstrapValidator").resetForm(true);
+                    $('#idAgregarFicha').modal('hide');
+                    $("#idfichaa").trigger("reset");
+                    $("#idcod").val("0");
+                    tabladata.ajax.reload();
+                } else {
+                    swal("Error", "No se pudo actualizar", "warning")
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            },
+            beforeSend: function () {
+                console.log(request)
+            }
+        });
+    }
+}
+
+
+
+
+
+
+
+
+
+/*EVENTO ONCLICK AL BTN-eliminar*/
+$(document).on("click",".btn-eliminar",function(){
+    var cod, nombre;
+    //obtener datos de las filas de la tabla
+    cod=$(this).parents("tr").find("td")[0].innerHTML;
+    nombre=$(this).parents("tr").find("td")[1].innerHTML;
+    swal({
+        title: "¿Seguro que desea eliminar "+nombre+"?",
+        text: "Se quitará de la lista",
+        icon: "warning",
+        dangerMode: true,
+        buttons: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                var row = $(this).closest('td');
+                var row1 = tabladata.row( row ).length;
+                console.log(cod)
+                $.ajax({
+                    url:"https://verificacion-facial.herokuapp.com/api/v1/ficha/eliminar/"+cod,
+                    type:"DELETE",
+                    success:function(){
+                        swal("Ok","Se eliminó correctamente!","success").then(function(){
+                            if(row1<=1){
+                                document.location.href = "fichaPostulacion.php";
+                            }else
+                                tabladata.ajax.reload();
+                        });
+                    }
+                });
+            }
+        });
+})
 
 
 
@@ -233,8 +356,7 @@ $(document).on("click","#idcancelar",function(){
     $("#idAgregarFicha").data("bootstrapValidator").resetForm(true);
 
     //limpiar controles 
-    $("#idfichaa").trigger("reset"); 
-    document.location.reload();  		
+    $("#idfichaa").trigger("reset");
     $("#idcod").val("0");	
 })
 

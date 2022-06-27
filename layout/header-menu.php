@@ -114,14 +114,14 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <!--<ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="#" class="nav-link active">
                   <span class="lnr lnr-exit"></span>
-                  <i class="fa fa-key"></i> <p>Cambiar Contraseña</p> 
+                  <i class="fa fa-key"></i> <p>Cambiar Contraseña</p>
                 </a>
               </li>
-            </ul>
+            </ul>-->
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="index.php" class="nav-link active">
