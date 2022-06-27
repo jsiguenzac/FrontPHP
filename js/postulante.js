@@ -32,7 +32,7 @@ $(document).ready(function() {
 						message:'Campo Correo es obligatorio.<br>'
 					},
  			 		regexp:{
-			 			regexp:/^[A-Z0-9_.+-]+@[A-Z0-9-]+\.[A-Z0-9-.]+$/,
+			 			regexp:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 			 			message:'Campo Correo presenta "@" y ".com".<br>'
 			 		}
 				}					
@@ -43,7 +43,7 @@ $(document).ready(function() {
 						message:'Campo Teléfono es obligatorio.<br>'
 					},
  			 		regexp:{
-			 			regexp:/^\d{1,9}$/,
+			 			regexp:/^\d{9}$/,
 			 			message:'Campo Teléfono es maximo 9 dígitos.<br>'
 			 		}
 				}					

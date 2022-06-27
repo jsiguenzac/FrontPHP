@@ -8,8 +8,8 @@ $(document).ready(function() {
  			 			message:'Campo Modalidad es obligatorio.<br>'
  			 		},
  			 		regexp:{
-                        regexp:/^[A-Z0-9\Ñ\Á\É\Í\Ó\Ú\@\_\''\""\-\*\+\!\¿\?\¡\(\)\·\$\#\|\´\/\.\{\}\=\Ä\Ë\Ï\Ö\Ü\%\[\]\<\,\>\ ]{1,20}$/,
-                        message:'Campo Modalidad máx. 20 caracteres.<br> Solo mayúsculas'
+                        regexp:/^[A-Z0-9\Ñ\Á\É\Í\Ó\Ú\@\_\''\""\-\*\+\!\¿\?\¡\(\)\·\$\#\|\´\/\.\{\}\=\Ä\Ë\Ï\Ö\Ü\%\[\]\<\,\>\ ]{1,50}$/,
+                        message:'Campo Modalidad máx. 50 caracteres.<br> Solo mayúsculas'
 			 		}
  			 	}					
 			},
