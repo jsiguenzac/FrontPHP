@@ -84,6 +84,8 @@ tabladata = $('#tableFicha').DataTable({
         },
         "columns": [       
             { "data": "id" },
+            { "data": "idModalidad", visible: false, searchseable: true},
+            { "data": "nombreModalidad" },
             { "data": "monto" },
             { "data": "nroPago" },
             { "data": "estado" },
@@ -119,23 +121,27 @@ tabladata = $('#tableFicha').DataTable({
         })
             .then((willUpdate) => {
                 if (willUpdate) {
-                    var id,monto,nroPago,estado;
+                    var id,modalidad,monto,nroPago,estado;
                     var row = $(this).closest('tr');
+
                     //obtener datos de las filas de la tabla
                     id = tabladata.row( row ).data().id;
                     //idPostulante = tabladata.row( row ).data().descripcion;
+                    modalidad = tabladata.row( row ).data().idModalidad;
                     monto = tabladata.row( row ).data().monto;
                     nroPago = tabladata.row( row ).data().nroPago;
                     estado = tabladata.row( row ).data().estado;
+                    console.log(row)
+                    console.log(modalidad)
 
                     //mostrar datos
                     //$("#idpostu").val(idPostulante);
                     //$("#idcarrera").val();
-                    //$("#idmodalidad").val();
+                    $("#idcod").val(id);
+                    $("#idmodalidad").val(modalidad);
                     //$("#idadmision").val();
                     $("#idmonto").val(monto);
                     $("#idnoperacion").val(nroPago);
-                    $("#idcod").val(id);
                     $("#idestado").val(estado);
                     $('#idAgregarFicha').modal('show'); //abrir modal
                 }

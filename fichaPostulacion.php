@@ -50,6 +50,8 @@
                         <thead class="table-dark">
                           <tr style="text-align: center;">
                           <th>Nº</th>
+                          <th style="display: none;"></th>
+                          <th>MODALIDAD</th>
                           <th>MONTO</th>
                           <th>N° PAGO</th>
                           <th>ESTADO</th>
